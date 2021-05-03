@@ -16,9 +16,9 @@ author: Adrian W
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - PH 1: "https://"
-    - PH 2: "https://"
-  Author's home: "https://"
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://deanattali.com"
 
 # --- Logo --- #
 
