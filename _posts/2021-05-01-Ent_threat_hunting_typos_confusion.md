@@ -31,7 +31,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  Honestly when I found out in February, that we might have to do this, I lost a good amount sleep at the scope of the problem, one of our repository managers' virtual repositories is running north of 1.5 million artifacts.
 
- Additional features have also since been released for Artifactory, such as ~~~priorityResolution~~~, which can be used to better organize the resolution order of packages in local, remote and virtual repositories, but only in npm and pypi right now.
+ Additional features have also since been released for Artifactory, such as `priorityResolution`, which can be used to better organize the resolution order of packages in local, remote and virtual repositories, but only in npm and pypi right now.
 
  ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
@@ -48,7 +48,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  com/M-G/exp-project/.
  ~~~
 
-####packages are often just called whatever
+#### packages are often just called whatever - namespace enforcement is a boring hygiene item to most
 
  Also, consider for pypi, there is only the global namespace, (i.e, the packages can be called whatever).
  And that NodeJS (npm) Supports both. yay, the packages are probably just called whatever.  
@@ -60,9 +60,10 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  Now you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
 
 
- Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and research kindly released by Schibsted: https://github.com/schibsted/artishock, which helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
+ Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
-This is still certainly a daunting task, especially if you work somewhere with an Artifactory that looks a little like this:
+This is still certainly a daunting task, especially if you work somewhere with a repository manager(s) that looks a little like this:
+
 ![jfrog client](/assets/img/post2/artycount.png){: .mx-auto.d-block :}
 
 
@@ -101,4 +102,15 @@ _with thanks to the ossf resources_:
 - Reference only 1 private feed, not multiple
 - Protect your packages using controlled scopes
 - Utilize client-side verification features (version pinning/integrity verification)
-more at https://github.com/ossf/ 
+more at https://github.com/ossf/
+
+
+#### Tools to look for likely vulnerabilities and measure software health
+
+By collecting, analyzing and participating in open source security metrics, we can better improve projects' security posture, and make better decisions on which projects to implement, which is not just a security issue, but a business risk, technical debt and attrition concern.
+
+These tools can also be used to conduct incident response and detection - more to come in a following post.
+
+![ossf dashboard](/assets/img/post2/ossf_metrics.png){: .mx-auto.d-block :}
+
+![ossf dashboard](/assets/img/post2/metrics_model.png){: .mx-auto.d-block :}
