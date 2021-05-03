@@ -6,16 +6,17 @@ thumbnail-img: /assets/img/post2/artithumb.png
 share-img: /aassets/img/post2/artithumb.png
 tags: [threathunting, sdlc, supplychain]
 comments: true
+toc: true 
 ---
 
 This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
 ##### Agenda
-Background
-The problem
-Additional problems
-Solutions
-Tips, tricks, tools for threat hunters and red teams
+Background  
+The problem  
+Additional problems  
+Solutions  
+Tips, tricks, tools for threat hunters and red teams  
 
 
 #### background
