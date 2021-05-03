@@ -35,6 +35,8 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
+ #### Repository managers make a lot of sketchy assumptions
+
  The problem for enterprises is, firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
  You can’t use an exclusion rule effectively in situations like the following scenario:
 
@@ -109,7 +111,7 @@ _with thanks to the ossf resources_:
 more at https://github.com/ossf/
 
 
-#### Tools to look for likely vulnerabilities and measure software health in open source 
+#### Tools to look for likely vulnerabilities and measure software health in open source
 
 By collecting, analyzing and participating in open source security metrics, we can better improve projects' security posture, and make better decisions on which projects to implement, which is not just a security issue, but a business risk, technical debt and attrition concern.
 
