@@ -25,7 +25,7 @@ Tips, tricks, tools for threat hunters and red teams
 
 
 On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
-The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries. Misconfigured or default package management proxies will also perform lookups to public repositories.
+The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries, misconfigured or default package management proxies will also perform lookups to public repositories.
 It speaks to a growing problem and set of circumstances almost too long to list; including typosquatting, trojan packages, dependency injection,  package takeovers through lost/stolen credentials or social engineering  and attackers using public registries to stage or pull down tooling or infrastructure.
 
 [Typos are still the most common/preferred attack vector](https://link.springer.com/chapter/10.1007%2F978-3-030-52683-2_2)
@@ -48,7 +48,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 ### The problem
 ####  Repository managers make a lot of sketchy assumptions
 
- The problem for enterprises is, firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
+ The problem for enterprises is firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention violations.
  You can’t use an exclusion rule effectively in situations like the following scenario:
 
  Let’s say you set an exclude rule  that looks as such, where Mean Girls == business name.
@@ -60,35 +60,36 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  ~~~
  com/M-G/exp-project/.
  ~~~
- Now you need additional exclusion rules, before long, you've got dozens of rules and likely unintended consequences of other packages being blocked.
+ Now you need additional exclusion rules, before long, you've got dozens of rules and likely unintended consequences such as legitimate packages being blocked.
 
 ##### Additional problems:
 ####  packages are often just called whatever - namespace enforcement is a boring hygiene item to most
 
  Also, consider for pypi, there is only the global namespace, (i.e, the packages can be called whatever).
- And that NodeJS (npm) Supports both. Yay, - the packages are probably just called whatever.  
- The obscurity of this probably won’t save you either, since package.json file disclosures in applications are common and not regarded to be a priority info disclosure finding in most organizations.
+ And that NodeJS (npm) supports both. Yay, - the packages are probably just called whatever.  
+ The obscurity of your setup probably won’t save you either, since package.json file disclosures in applications are common and not regarded to be a priority info disclosure finding in most organizations.
+ Many organizations only rapidly respond to source code leaks when it involves credentials, another area where your internal naming conventions can be enumerated.
 
- Which leads to the obvious question, what kind of enforcement or detection do you have on namespace conventions?
+ This leads us to the obvious question, what kind of enforcement or detection do you have on namespace conventions?
 
  A namespace violation might be also considered without this context to be fairly innocuous and low priority.
- But, now with this attack method you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
- That's the importance of fundamentals, the ability to find, educate and enforce on the basics, like namespace conventions.
+ But, now with this above scenario you've got yourself an auto-triggering killchain and a problem a whole lot bigger and more complicated problem to solve for. Whilst it's totally doable with the right tooling and educational awareness, over time, this technique is pretty hot right now.
+ That's the importance of fundamentals, the ability to find, educate and enforce on the basics, like namespace conventions is a key, unsexy element of appsec.
 
 #### Solution 1: detections when namespaces are definitely being ignored or violated
 
- Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
+ Detecting circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
 This is still certainly a daunting task, especially if you work somewhere with a repository manager(s) that looks a little like this:
 
 ![jfrog client](/assets/img/post2/artycount.png){: .mx-auto.d-block :}
 
 
-This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
+This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations causing public lookups, and herein lies some other ways to get eyes on the problem permanently.
 
 #### Solution 2: proxy logs beats fragmentation
 
-Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
+Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
 Along with using this information to correct the exclude patterns in your Package Manager, you can also use this information to create alerts which trigger if said packages ever start to respond with a ‘200: ok’, indicating that they now exist in a public repo and ought to be investigated!
 This will work for future packages that your org hasn't even created yet.
