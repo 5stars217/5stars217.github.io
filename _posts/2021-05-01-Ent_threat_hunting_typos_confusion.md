@@ -2,9 +2,9 @@
 layout: post
 title: 	Enterprise Threat Hunting for Dependency Confusion & Typosquatting
 subtitle: The fundamentals once again determine the ease of enterprise response.
-gh-repo: 5stars217/5tars215
-gh-badge: [star, fork, follow]
-tags: [test]
+thumbnail-img: /assets/img/post2/artithumb.png
+share-img: /aassets/img/post2/artithumb.png
+tags: [threathunting, sdlc, supplychain]
 comments: true
 ---
 
@@ -14,13 +14,13 @@ This is a collection of advice to aid in detection of dependency confusion and t
 ## Package repositories represent a reliable and scalable malware distribution channel.
 
 ####background
-On Feb 9, Alex Birsan released [this research]: (https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
 The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries. Misconfigured or default package management proxies will also perform lookups to public repositories.
 It speaks to a growing problem and set of circumstances almost too long to list; including typosquatting, trojan packages, dependency injection,  package takeovers through lost/stolen credentials or social engineering  and attackers using public registries to stage or pull down tooling or infrastructure.
 
 Typos are still the most common/preferred attack vector:https://link.springer.com/chapter/10.1007%2F978-3-030-52683-2_2
 
-![Attack Metrics](/assets/img/post2/attack type.png){: .mx-auto.d-block :}
+![Attack Metrics](/assets/img/post2/attack_type.png){: .mx-auto.d-block :}
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
 
@@ -70,7 +70,8 @@ This problem is not going away any time soon, neither are spelling mistakes and 
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
 Along with using this information to correct the exclude patterns in your Package Manager, you can also use this information to create alerts which trigger if said packages ever start to respond with a ‘200: ok’, indicating that they now exist in a public repo and ought to be investigated!
-psuedo query:
+
+Psuedo-query:
 
 ~~~
 Host=pypi.org  //substitute for npmjs.org,rubygems.org, etc

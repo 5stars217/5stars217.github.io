@@ -2,13 +2,14 @@
 layout: post
 title: The CEO of SolarWinds (and former CEO of Pulse Secure) is clearly a victim of witchcraft.
 subtitle: Has there ever been such compelling evidence of the existence of magic?
-cover-img: /assets/img/solarwindsceocv.png
+#cover-img: /assets/img/solarwindsceocv.png
 thumbnail-img: /assets/img/burnbook.jpeg
 share-img: /assets/img/solarwindsceocv.png
 tags: [humor, test]
 ---
 
 Over the years I have conducted numerous physical and personal security assessments for businesses and executives. Part of that assessment has always included a sweep for hex bags and other physical curses. Using this knowledge, I must state that the CEO at the center of two of the most serious cyberattacks of the past year has been cursed.
+![bad luck](/assets/img/solarwindsceocv.png){: .mx-auto.d-block :}
 
 #### How else could one explain such misfortune?
 I reference:
@@ -29,7 +30,7 @@ By simply bundling the items in cloth and burning a candle, you too can start th
 It should come as no surprise to even the most ardent skeptic that there is significant power in magic and also significant power within the psychic gestalt. This was probably best represented to those outside this domain of expertise in the movie 'Mean Girls (2004)' . ( IMDB 7.0/10? Are you serious? )
 
 ![Burn Book](/assets/img/burnbook.jpeg){: .mx-auto.d-block :}
-#####_Words and Curses can have a profound and lasting impact on the lives of those targeted._
+##### _Words and Curses can have a profound and lasting impact on the lives of those targeted._
 
 #### How to respond to Advanced Persistent Curses?
 
