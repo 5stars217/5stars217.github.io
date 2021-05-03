@@ -20,18 +20,18 @@ It speaks to a growing problem and set of circumstances almost too long to list;
 
 Typos are still the most common/preferred attack vector:https://link.springer.com/chapter/10.1007%2F978-3-030-52683-2_2
 
-![Attack Metrics](assets/img/post2/attack type.png){: .mx-auto.d-block :}
+![Attack Metrics](/assets/img/post2/attack type.png){: .mx-auto.d-block :}
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
 
 Unfortunately, these solutions do not scale well, if you work in an Enterprise with lots of teams and repositories, maintaining these patterns in an effective a really rough ask, and I’m not the only one who feels this way:
- ![jfrog client](assets/img/post2/jfrogfeelies.png){: .mx-auto.d-block :}
+ ![jfrog client](/assets/img/post2/jfrogfeelies.png){: .mx-auto.d-block :}
 
  Honestly when I found out in February, that we might have to do this, I lost a good amount sleep at the scope of the problem.
 
  Additional features have also since been released for Artifactory, such as ~~~priorityResolution~~~, which can be used to better organize the resolution order of packages in local, remote and virtual repositories, but only in npm and pypi right now.
 
- ![jfrog client](assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
+ ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
  The problem for enterprises is, firstly, it assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
  You can’t use a exclusion rule effectively in situations like the following scenario:
@@ -61,12 +61,12 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and research kindly released by Schibsted: https://github.com/schibsted/artishock, which helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
 This is still certainly a daunting task, especially if you work somewhere with an Artifactory that looks a little like this:
-![jfrog client](assets/img/post2/artycount.png){: .mx-auto.d-block :}
+![jfrog client](/assets/img/post2/artycount.png){: .mx-auto.d-block :}
 
 
 This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
 
-#### proxy logs 
+#### proxy logs
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
 Along with using this information to correct the exclude patterns in your Package Manager, you can also use this information to create alerts which trigger if said packages ever start to respond with a ‘200: ok’, indicating that they now exist in a public repo and ought to be investigated!

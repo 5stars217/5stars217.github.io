@@ -4,7 +4,7 @@ title: The CEO of SolarWinds (and former CEO of Pulse Secure) is clearly a victi
 subtitle: Has there ever been such compelling evidence of the existence of magic?
 cover-img: /assets/img/solarwindsceocv.png
 thumbnail-img: /assets/img/burnbook.jpeg
-share-img: assets/img/solarwindsceocv.png
+share-img: /assets/img/solarwindsceocv.png
 tags: [humor, test]
 ---
 
