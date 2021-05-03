@@ -8,7 +8,7 @@ tags: [threathunting, sdlc, supplychain]
 comments: true
 ---
 
-This is a collection of advice to aid in detection of dependency confusion and typo-squatting attacks largely aimed at enterprise, where response to such a thing can be tricky.
+This collection of advice is aimedto improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
 
 ## Package repositories represent a reliable and scalable malware distribution channel.
@@ -74,7 +74,7 @@ This is still certainly a daunting task, especially if you work somewhere with a
 
 This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
 
-#### proxy logs
+#### proxy logs beats fragmentation 
 
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
