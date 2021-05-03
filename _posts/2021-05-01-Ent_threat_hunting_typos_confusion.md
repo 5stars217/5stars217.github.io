@@ -35,6 +35,8 @@ It speaks to a growing problem and set of circumstances almost too long to list;
 #### Repository Manager's response ''_use pattern matching / routing rules_'' :
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
+![routing_rules_sonatype](/assets/img/post2/routing-rule-create.png){: .mx-auto.d-block :}
+
 
 Unfortunately, these solutions do not scale well, if you work in an Enterprise with lots of teams and repositories, maintaining these patterns in an effective a really rough ask, and I’m not the only one who feels this way:
  ![jfrog client](/assets/img/post2/jfrogfeelies.png){: .mx-auto.d-block :}
