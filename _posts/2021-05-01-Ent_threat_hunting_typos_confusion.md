@@ -13,21 +13,23 @@ This is a collection of advice to aid in detection of dependency confusion and t
 
 ## Package repositories represent a reliable and scalable malware distribution channel.
 
-####background
+#### background
 On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
 The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries. Misconfigured or default package management proxies will also perform lookups to public repositories.
 It speaks to a growing problem and set of circumstances almost too long to list; including typosquatting, trojan packages, dependency injection,  package takeovers through lost/stolen credentials or social engineering  and attackers using public registries to stage or pull down tooling or infrastructure.
 
-Typos are still the most common/preferred attack vector:https://link.springer.com/chapter/10.1007%2F978-3-030-52683-2_2
+[Typos are still the most common/preferred attack vector](https://link.springer.com/chapter/10.1007%2F978-3-030-52683-2_2)
 
 ![Attack Metrics](/assets/img/post2/attack_type.png){: .mx-auto.d-block :}
+
+#### Repository Manager's response:
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
 
 Unfortunately, these solutions do not scale well, if you work in an Enterprise with lots of teams and repositories, maintaining these patterns in an effective a really rough ask, and I’m not the only one who feels this way:
  ![jfrog client](/assets/img/post2/jfrogfeelies.png){: .mx-auto.d-block :}
 
- Honestly when I found out in February, that we might have to do this, I lost a good amount sleep at the scope of the problem.
+ Honestly when I found out in February, that we might have to do this, I lost a good amount sleep at the scope of the problem, one of our repository managers' virtual repositories is running north of 1.5 million artifacts.
 
  Additional features have also since been released for Artifactory, such as ~~~priorityResolution~~~, which can be used to better organize the resolution order of packages in local, remote and virtual repositories, but only in npm and pypi right now.
 
