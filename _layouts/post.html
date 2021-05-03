@@ -40,7 +40,7 @@ layout: base
       {% endif %}
 
       <article role="main" class="blog-post">
-        {{ content }}
+        {{ c{% include toc.html html=content sanitize=true h_min=4 h_max=1 %} }}
       </article>
 
       {% if page.tags.size > 0 %}

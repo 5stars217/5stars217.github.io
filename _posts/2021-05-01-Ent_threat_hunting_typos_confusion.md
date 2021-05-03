@@ -10,10 +10,18 @@ comments: true
 
 This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
+##### Agenda
+Background
+The problem
+Additional problems
+Solutions
+Tips, tricks, tools for threat hunters and red teams
 
-## Package repositories represent a reliable and scalable malware distribution channel.
 
 #### background
+##  Package repositories represent a reliable and scalable malware distribution channel.
+
+
 On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
 The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries. Misconfigured or default package management proxies will also perform lookups to public repositories.
 It speaks to a growing problem and set of circumstances almost too long to list; including typosquatting, trojan packages, dependency injection,  package takeovers through lost/stolen credentials or social engineering  and attackers using public registries to stage or pull down tooling or infrastructure.
@@ -35,7 +43,8 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
-#### Repository managers make a lot of sketchy assumptions
+### The problem
+####  Repository managers make a lot of sketchy assumptions
 
  The problem for enterprises is, firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
  You can’t use an exclusion rule effectively in situations like the following scenario:
@@ -51,7 +60,8 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  ~~~
  Now you need additional exclusion rules, before long, you've got dozens of rules and likely unintended consequences of other packages being blocked.
 
-#### packages are often just called whatever - namespace enforcement is a boring hygiene item to most
+##### Additional problems:
+####  packages are often just called whatever - namespace enforcement is a boring hygiene item to most
 
  Also, consider for pypi, there is only the global namespace, (i.e, the packages can be called whatever).
  And that NodeJS (npm) Supports both. Yay, - the packages are probably just called whatever.  
@@ -63,7 +73,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  But, now with this attack method you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
  That's the importance of fundamentals, the ability to find, educate and enforce on the basics, like namespace conventions.
 
-#### detections when namespaces are definitely being ignored or violated
+#### Solution 1: detections when namespaces are definitely being ignored or violated
 
  Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
@@ -74,7 +84,7 @@ This is still certainly a daunting task, especially if you work somewhere with a
 
 This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
 
-#### proxy logs beats fragmentation
+#### Solution 2: proxy logs beats fragmentation
 
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
@@ -98,7 +108,7 @@ http_status=404  earliest=-45d latest=-1d
 @red teamers, claim them for yourself and hack something :).
 
 
-### Tip
+#### tips, tricks, tools for threat hunters and red teams
 
 {: .box-note}
 **Note:** your internal copies of pip, gems, nuget, maven/gradle, etc should come preconfigured with the correct  internal repository manager, (not just blocking the public ones and calling it a day) for developers to not only speed up the onboarding process, but reduce the number of calls direct out to public repositories.
