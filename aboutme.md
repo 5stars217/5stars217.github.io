@@ -10,5 +10,3 @@ My name is Adrian. I have the following qualities:
 -
 
 What else do you need?
-
-### My story

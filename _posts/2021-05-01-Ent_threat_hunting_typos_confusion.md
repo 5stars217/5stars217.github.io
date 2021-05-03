@@ -8,7 +8,7 @@ tags: [threathunting, sdlc, supplychain]
 comments: true
 ---
 
-This collection of advice is aimedto improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
+This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
 
 ## Package repositories represent a reliable and scalable malware distribution channel.
@@ -22,7 +22,7 @@ It speaks to a growing problem and set of circumstances almost too long to list;
 
 ![Attack Metrics](/assets/img/post2/attack_type.png){: .mx-auto.d-block :}
 
-#### Repository Manager's response:
+#### Repository Manager's response ''_use pattern matching / routing rules_'' :
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
 
@@ -54,16 +54,16 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 #### packages are often just called whatever - namespace enforcement is a boring hygiene item to most
 
  Also, consider for pypi, there is only the global namespace, (i.e, the packages can be called whatever).
- And that NodeJS (npm) Supports both. yay, the packages are probably just called whatever.  
+ And that NodeJS (npm) Supports both. Yay, - the packages are probably just called whatever.  
  The obscurity of this probably won’t save you either, since package.json file disclosures in applications are common and not regarded to be a priority info disclosure finding in most organizations.
 
  Which leads to the obvious question, what kind of enforcement or detection do you have on namespace conventions?
 
  A namespace violation might be also considered without this context to be fairly innocuous and low priority.
- Now you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
+ But, now with this attack method you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
  That's the importance of fundamentals, the ability to find, educate and enforce on the basics, like namespace conventions.
 
-#### detections when namespaces are ignored or violated
+#### detections when namespaces are definitely being ignored or violated
 
  Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
@@ -79,6 +79,7 @@ This problem is not going away any time soon, neither are spelling mistakes and 
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
 Along with using this information to correct the exclude patterns in your Package Manager, you can also use this information to create alerts which trigger if said packages ever start to respond with a ‘200: ok’, indicating that they now exist in a public repo and ought to be investigated!
+This will work for future packages that your org hasn't even created yet.
 
 Psuedo-query:
 
