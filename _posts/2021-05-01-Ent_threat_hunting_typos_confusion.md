@@ -94,3 +94,11 @@ http_status=404  earliest=-45d latest=-1d
 
 {: .box-note}
 **Note:** your internal copies of pip, gems, nuget, maven/gradle, etc should come preconfigured with the correct  internal repository manager, (not just blocking the public ones and calling it a day) for developers to not only speed up the onboarding process, but reduce the number of calls direct out to public repositories.
+
+#### other remediation notes
+
+_with thanks to the ossf resources_:
+- Reference only 1 private feed, not multiple
+- Protect your packages using controlled scopes
+- Utilize client-side verification features (version pinning/integrity verification)
+more at https://github.com/ossf/ 
