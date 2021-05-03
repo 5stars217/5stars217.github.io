@@ -2,11 +2,12 @@
 layout: post
 title: 	Enterprise Threat Hunting for Dependency Confusion & Typosquatting
 subtitle: The fundamentals once again determine the ease of enterprise response.
+toc: true
 thumbnail-img: /assets/img/post2/artithumb.png
 share-img: /aassets/img/post2/artithumb.png
 tags: [threathunting, sdlc, supplychain]
 comments: true
-toc: true 
+
 ---
 
 This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
