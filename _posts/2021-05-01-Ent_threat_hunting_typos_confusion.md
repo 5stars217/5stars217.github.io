@@ -14,7 +14,7 @@ This is a collection of advice to aid in detection of dependency confusion and t
 ## Package repositories represent a reliable and scalable malware distribution channel.
 
 #### background
-On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+On Feb 9, Alex Birsan released [this research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
 The research detailed how under certain circumstances, package managers will ‘helpfully’ fetch internal artifacts from public registries. Misconfigured or default package management proxies will also perform lookups to public repositories.
 It speaks to a growing problem and set of circumstances almost too long to list; including typosquatting, trojan packages, dependency injection,  package takeovers through lost/stolen credentials or social engineering  and attackers using public registries to stage or pull down tooling or infrastructure.
 
@@ -35,8 +35,8 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
- The problem for enterprises is, firstly, it assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
- You can’t use a exclusion rule effectively in situations like the following scenario:
+ The problem for enterprises is, firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
+ You can’t use an exclusion rule effectively in situations like the following scenario:
 
  Let’s say you set an exclude rule  that looks as such, where Mean Girls == business name.
  ~~~
@@ -47,6 +47,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
  ~~~
  com/M-G/exp-project/.
  ~~~
+ Now you need additional exclusion rules, before long, you've got dozens of rules and likely unintended consequences of other packages being blocked.
 
 #### packages are often just called whatever - namespace enforcement is a boring hygiene item to most
 
@@ -58,7 +59,9 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  A namespace violation might be also considered without this context to be fairly innocuous and low priority.
  Now you got yourself a killchain and a problem a whole lot bigger and more complicated problem to solve for, but totally doable with the right tooling and educational awareness, over time.
+ That's the importance of fundamentals, the ability to find, educate and enforce on the basics, like namespace conventions.
 
+#### detections when namespaces are ignored or violated
 
  Detection of circumstances where an attacker might be in the process of triggering a dependency confusion attack can be found with tools and [research kindly released by Schibsted](https://github.com/schibsted/artishock). This helps you map your internal packages vs external packages, regardless of the namespace, so that the correct exclude patterns can be set in the repository manager or alternatively they can be claimed by your team.
 
@@ -70,6 +73,7 @@ This is still certainly a daunting task, especially if you work somewhere with a
 This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
 
 #### proxy logs
+
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
 Along with using this information to correct the exclude patterns in your Package Manager, you can also use this information to create alerts which trigger if said packages ever start to respond with a ‘200: ok’, indicating that they now exist in a public repo and ought to be investigated!
@@ -105,7 +109,7 @@ _with thanks to the ossf resources_:
 more at https://github.com/ossf/
 
 
-#### Tools to look for likely vulnerabilities and measure software health
+#### Tools to look for likely vulnerabilities and measure software health in open source 
 
 By collecting, analyzing and participating in open source security metrics, we can better improve projects' security posture, and make better decisions on which projects to implement, which is not just a security issue, but a business risk, technical debt and attrition concern.
 
