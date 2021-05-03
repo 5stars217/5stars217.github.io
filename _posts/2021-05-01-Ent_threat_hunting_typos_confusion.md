@@ -35,7 +35,7 @@ Unfortunately, these solutions do not scale well, if you work in an Enterprise w
 
  ![jfrog client](/assets/img/post2/priorityresolution.png){: .mx-auto.d-block :}
 
- #### Repository managers make a lot of sketchy assumptions
+#### Repository managers make a lot of sketchy assumptions
 
  The problem for enterprises is, firstly, it should be assumed that they use every language under the sun, and secondly, they have loose rules or gaps in their coverage of namespace convention.
  You can’t use an exclusion rule effectively in situations like the following scenario:
@@ -74,7 +74,7 @@ This is still certainly a daunting task, especially if you work somewhere with a
 
 This problem is not going away any time soon, neither are spelling mistakes and wrong/default proxy configurations, and herein lies some other ways to get eyes on the problem permanently.
 
-#### proxy logs beats fragmentation 
+#### proxy logs beats fragmentation
 
 Whilst artishock can be run indefinitely, proxy logs can be leveraged to track failed lookups, regardless of the spelling, new development projects, namespace or scale.
 Let’s use pypi as an example: When a client attempts to fetch a package, and that package currently does not exist, the public registry will respond with a 404: not found.
@@ -108,7 +108,7 @@ _with thanks to the ossf resources_:
 - Reference only 1 private feed, not multiple
 - Protect your packages using controlled scopes
 - Utilize client-side verification features (version pinning/integrity verification)
-more at https://github.com/ossf/
+more at https://github.com/ossf/  
 
 
 #### Tools to look for likely vulnerabilities and measure software health in open source
