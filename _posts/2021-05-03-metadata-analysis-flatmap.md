@@ -18,12 +18,12 @@ This method is not really applicable or intended for typosquatted packages (alth
 #### From an attackers perspective, modifying a known good package's source code has several stages in the OODA loop
 
 **1) Identification of a target**
-Not withstanding opportunistic account acquisition (i.e : compromised credentials), projects with low maintainer counts, long periods with no commits, longstanding issues historically make for good targets.
-Tooling like CHAOSS, and OSSF Metrics are useful for both attackers and defenders in selecting targets.
+Not withstanding opportunistic account acquisition (i.e : compromised credentials), projects with low maintainer counts, long periods with no commits, and longstanding open issues historically make for good targets.
+Tooling like CHAOSS, and OSSF Metrics are useful for both attackers and defenders in selecting targets that meet this criteria.
 
 
 **2) Determination of malicious code entry vector**
-Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors, and ones we're concerned with here, and closely related to target identification steps.
+Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors and the ones we're concerned with here. This process is closely related to target identification steps.
 
 
 **3) Commit(s) of malicious content**
