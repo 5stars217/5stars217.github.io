@@ -15,13 +15,17 @@ There's been hundreds of software dependency supply chain attacks exploiting a r
 
 This method is not really applicable or intended for typosquatted packages (although a lack of metadata is a signal in and of itself), but more for situations where a threat actor gains publishing permissions or control over an existing repository.
 
- #### from an attackers perspective, modifying a known good package's source code has several stages in the OODA loop:
+#### From an attackers perspective, modifying a known good package's source code has several stages in the OODA loop
 
 **1) Identification of a target**
 Not withstanding opportunistic account acquisition (i.e : compromised credentials), projects with low maintainer counts, long periods with no commits, longstanding issues historically make for good targets.
 Tooling like CHAOSS, and OSSF Metrics are useful for both attackers and defenders in selecting targets.
+
+
 **2) Determination of malicious code entry vector**
-Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors, and ones we're concerned with here, and closely related to target identifcation steps.
+Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors, and ones we're concerned with here, and closely related to target identification steps.
+
+
 **3) Commit(s) of malicious content**
 Once code is committed to the repository, the attacker is exposed to any gating mechanisms, and thousands of eyes on. Lengthy peer review periods or branch protections put the attack at risk, they're incentivized to move briskly through this process so their malicious additions execute, pushing their code through to main as soon as possible.
 
