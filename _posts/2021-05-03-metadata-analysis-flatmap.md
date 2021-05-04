@@ -35,11 +35,11 @@ Once code is committed to the repository, the attacker is exposed to any gating 
 [Event-Stream](https://github.com/dominictarr/event-stream) at time of exploit was used by another 1,600 packages, and was on average downloaded 1.5 million times a week.
 The exact circumstances surrounding the event are [well publicized](https://www.zdnet.com/article/hacker-backdoors-popular-javascript-library-to-steal-bitcoin-funds/) but essentially the sole maintainer of the Event-Stream Package (who maintains a large number of JavaScript Packages and is well regarded) gave publishing rights to an individual who wanted to maintain the module. This kept the repository under the original username, making the change less obvious.
 ![pic of publishing rights discussion](/assets/img/post3/publishing_rights.png){: .mx-auto.d-block :}
-The new publisher added a dependency and a minor version increment to Event-Stream called [Flatmap-Stream](https://github.com/hugeglass/flatmap-stream) which had at the time, 1 commit and no users.  **Flatmap-Stream was targeted in its malicious behavior**, designed to target cryptocurrency wallets.  
+The new publisher added a dependency and a minor version increment to Event-Stream called [Flatmap-Stream](https://github.com/hugeglass/flatmap-stream) which had at the time 1 commit and no users.  **Flatmap-Stream was targeted in its malicious behavior** in that it was designed to look for targets' cryptocurrency wallets but take no action if none were found.  
 ![dependency addition](/assets/img/post3/add_flatmap.png){: .mx-auto.d-block :}  
 ![dependency addition](/assets/img/post3/versionbump.png){: .mx-auto.d-block :}
 
-After a few days, (and millions of installs) the publisher removes the dependency and adds a major version increment, leaving a large number of installs but 'cleaner' looking source code if it were to be inspected.
+After a few days (and millions of installs) the publisher removed the dependency and adds a major version increment, leaving a large number of installs but 'cleaner' looking source code if it were to be inspected.
 ![dependency addition](/assets/img/post3/majorversionbump.png){: .mx-auto.d-block :}
 
 
@@ -51,10 +51,10 @@ The data also shows that the project had not received any updates for a substant
 The metadata shows an unusual trend in reviews at the time: less than half the length of any prior review, coupled with a new user publishing: `committer_name:cbd54bcf956440406bd33139413d956b8ae75a27 `
 ![pic malicious code commits and reviews](/assets/img/post3/reviews.png){: .mx-auto.d-block :}
 
-These data points don't point to anything untoward on their own, for instance, the pic below shows that it was common for the project to have one-off or 'drive by contributors'(very common)- but together the data starts to paint a picture.
+These data points don't point to anything untoward on their own. For instance, the picture below shows that it was common for the project to have one-off or "drive by" contributors(very common in open source) - but together the data starts to paint a picture.
 ![drive by reviews](/assets/img/post3/driveby.png){: .mx-auto.d-block :}
 
-Of course, once the damage is done, we see a significant increase in issues reported:
+Of course, once the damage is done we see a significant increase in issues reported:
 ![drive by reviews](/assets/img/post3/issuespike.png){: .mx-auto.d-block :}
 
 I'll be studying and posting about other similar attacks, I believe by observing packages from the eyes of an attacker, it is possible to first isolate 'unhealthy' projects, as is being done by [the OSSF Metrics group](https://github.com/ossf/Project-Security-Metrics) - of which I hope to be an active contributor moving forward - and then subject those repos to additional interdiction when anomalous activity commences in the future.
