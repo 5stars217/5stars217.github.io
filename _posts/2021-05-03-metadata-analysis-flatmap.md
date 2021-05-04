@@ -57,4 +57,4 @@ These data points don't point to anything untoward on their own. For instance, t
 Of course, once the damage is done we see a significant increase in issues reported:
 ![drive by reviews](/assets/img/post3/issuespike.png){: .mx-auto.d-block :}
 
-I'll be studying and posting about other, similar attacks on trusted repositories. I believe by observing packages from the eyes of an attacker, it is possible to first isolate 'unhealthy' projects, as is being done by [the OSSF Metrics group](https://github.com/ossf/Project-Security-Metrics) - of which I hope to be an active contributor moving forward - and then subject those repos to additional interdiction when anomalous activity commences in the future.
+I'll be studying and posting about other, similar attacks on trusted repositories. I believe by observing packages from the eyes of an attacker it is possible to first isolate 'unhealthy' projects, as is being done by [the OSSF Metrics group](https://github.com/ossf/Project-Security-Metrics) - of which I hope to be an active contributor moving forward - and then subject those repos to additional interdiction when anomalous activity commences in the future.
