@@ -1,7 +1,8 @@
 ---
 layout: draft
 title: Metadata Analysis of flatmap dependency supply chain attack
-subtitle: Investigating future detection mechanisms for open source project repositories
+subtitle: Investigating future model detection mechanisms for open source project repositories
+toc: true
 #cover-img: /assets/img/solarwindsceocv.png
 thumbnail-img: /assets/img/post2/
 share-img: /assets/img/post2/
@@ -17,44 +18,37 @@ This method is not really applicable or intended for typosquatted packages (alth
  #### from an attackers perspective, modifying a known good package's source code has several stages:
 
 **1) Identification of a target**
-Not withstanding opportunistic account acquisition, projects with low maintainer counts, long periods with no commits, longstanding issues make for good targets.
+Not withstanding opportunistic account acquisition (i.e : compromised credentials), projects with low maintainer counts, long periods with no commits, longstanding issues historically make for good targets.
 Tooling like CHAOSS, and OSSF Metrics are useful for both attackers and defenders in selecting targets.
 **2) Determination of malicious code entry vector**
-Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), Obtaining publishing rights, Repo Takeovers are the most common entry vectors.
+Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors, and ones we're concerned with here.
 **3) Commit(s) of malicious content**
-Once code is committed to the repository, the attacker is exposed to any gating mechanisms. Lengthy peer review periods or branch protections put the attack at risk.
+Once code is committed to the repository, the attacker is exposed to any gating mechanisms, and thousands of eyes on. Lengthy peer review periods or branch protections put the attack at risk, they're incentivized to move briskly through this process so their malicious additions executed, pushing their code through to main as soon as possible.
 
 
+#### Analysis 1: Event-Stream
 
-![bad luck](/assets/img/solarwindsceocv.png){: .mx-auto.d-block :}
+[Event-Stream](https://github.com/dominictarr/event-stream) at time of exploit, was used by another 1,600 packages, and was on average downloaded 1.5 million times a week.
+The exact circumstances surrounding the event are [well publicized](https://www.zdnet.com/article/hacker-backdoors-popular-javascript-library-to-steal-bitcoin-funds/) but essentially the sole maintainer of the Event-Stream Package (who maintains a large number of JavaScript Packages, and is well regarded), gave publishing rights to an individual who wanted to maintain the module. This kept the repository under the original username, making the change less obvious.
+![pic of publishing rights discussion](/assets/img/post3/publishing_rights.png){: .mx-auto.d-block :}
+The new publisher added a dependency and a minor version increment to Event-Stream called [Flatmap-Stream](https://github.com/hugeglass/flatmap-stream) which had at the time, 1 commit and no users.  **Flatmap-Stream was targeted in its malicious behavior**, designed to target cryptocurrency wallets.  
+![dependency addition](/assets/img/post3/add flapmap.png{: .mx-auto.d-block :}
+![dependency addition](/assets/img/post3/versionbump.png{: .mx-auto.d-block :}
 
-#### How else could one explain such misfortune?
-I reference:
-['SolarWinds'](https://en.wikipedia.org/wiki/2020_United_States_federal_government_data_breach)
-['APT Actors Leverage Pulse Secure 0day'](https://www.fireeye.com/blog/threat-research/2021/04/suspected-apt-actors-leverage-bypass-techniques-pulse-secure-zero-day.html)
+After a few days, (and millions of installs) the publisher removes the dependency and adds a major version increment, leaving a large number of installs but 'cleaner' looking source code.
+![dependency addition](/assets/img/post3/majorversionbump.png{: .mx-auto.d-block :}
 
-I've learned that this kind of misfortune caused by 'malice hexes'.
+#### What does the metadata tell us about Event-Stream?
+![pic of project commit history dwindling](/assets/img/post3/commits.png){: .mx-auto.d-block :}
+The data also shows that the project had not received any updates for a substantial period of time, which was surely a factor in the attackers reconnaissance and target selection.
+![pic malicious code commits and reviews](/assets/img/post3/eventstream_reviews.tiff){: .mx-auto.d-block :}
+The metadata shows an unusual trend in reviews at the time: less than half the length of any prior review, coupled with a new user publishing: `committer_name:cbd54bcf956440406bd33139413d956b8ae75a27 `
+![pic malicious code commits and reviews](/assets/img/post3/eventstream_reviews.tiff){: .mx-auto.d-block :}
 
-With a photo printer and simple household ingredients one can create powerful curses leveraging what insiders call 'sympathetic magic' to cause significant disruption to people's lives.
+These data points don't point to anything untoward on their own, for instance, the pic below shows that it was common for the project to have one-off or 'drive by contributors' - but together the data starts to paint a picture.
+![drive by reviews](/assets/img/post3/driveby.png){: .mx-auto.d-block :}
 
-Objects like nails can be used to ''pierce'' the defenses of networks and shards of glass or rusted objects can be used for malice and pain. Black string is used to bind the spell to the individual.
+Of course, once the damage is done, we see a significant increase in issues reported:
+![drive by reviews](/assets/img/post3/issuespike.png){: .mx-auto.d-block :}
 
-![Hex Bags](/assets/img/hexbag.jpeg){: .mx-auto.d-block :}
-
-
-By simply bundling the items in cloth and burning a candle, you too can start the process of applying, or remediating a curse. (Remediation in the following section). Simple incantations can be repeated to begin the process.
-
-It should come as no surprise to even the most ardent skeptic that there is significant power in magic and also significant power within the psychic gestalt. This was probably best represented to those outside this domain of expertise in the movie 'Mean Girls (2004)' . ( IMDB 7.0/10? Are you serious? )
-
-![Burn Book](/assets/img/burnbook.jpeg){: .mx-auto.d-block :}
-##### _Words and Curses can have a profound and lasting impact on the lives of those targeted._
-
-#### How to respond to Advanced Persistent Curses?
-
-It's important to start by examining your personal space for hex bags (or putsi bags) and other cursed objects, and burning them. Consider looking under the bed, in your car, office or other area you spend a lot of time for the cursed objects.
-
-Defensive hexes can be used to mitigate or counteract the negative effects. Things like Cedar, Cinnamon, Mint, Nutmeg and Sage are powerful ingredients that can be used in charm bags, vials or worn on the body.
-
-I urge you to consider the aura of your supply chain.
-
-Note to recruiters: I do not wish to be contacted at this time.
+I'll be studying and posting about other similar attacks, I believe by observing packages from the eyes of an attacker, it is possible to first isolate 'unhealthy' projects, as is being done by [the OSSF Metrics group](https://github.com/ossf/Project-Security-Metrics) - of which I hope to be an active contributor moving forward - and then subjecting the repos to additional interdiction when anomalous activity commences in the future.

@@ -13,7 +13,7 @@ comments: true
 This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
 ##### Agenda
-Background  
+Background 
 The problem  
 Additional problems  
 Solutions  
