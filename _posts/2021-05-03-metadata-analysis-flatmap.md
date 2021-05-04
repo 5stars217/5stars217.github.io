@@ -17,23 +17,23 @@ This method is not really applicable or intended for typosquatted packages (alth
 
 #### From an attackers perspective, modifying a known good package's source code has several stages in the OODA loop
 
-**1) Identification of a target**
-Not withstanding opportunistic account acquisition (i.e : compromised credentials), projects with low maintainer counts, long periods with no commits, and longstanding open issues historically make for good targets.
-Tooling like CHAOSS, and OSSF Metrics are useful for both attackers and defenders in selecting targets that meet this criteria.
+**1) Identification of a target.**
+Not withstanding opportunistic account acquisition (i.e., compromised credentials), projects with low maintainer counts, long periods with no commits, and longstanding open issues historically make for good targets.
+Tooling like _CHAOSS_ and _OSSF Metrics_ are useful for both attackers and defenders in selecting targets that meet this criteria.
 
 
-**2) Determination of malicious code entry vector**
+**2) Determination of malicious code entry vector.**
 Social Engineering (working to obtain trusted status on the repositories, or PR's for issues), obtaining publishing rights, and repo takeovers are common entry vectors and the ones we're concerned with here. This process is closely related to target identification steps.
 
 
-**3) Commit(s) of malicious content**
-Once code is committed to the repository, the attacker is exposed to any gating mechanisms, and thousands of eyes on. Lengthy peer review periods or branch protections put the attack at risk, they're incentivized to move briskly through this process so their malicious additions execute, pushing their code through to main as soon as possible.
+**3) Commit(s) of malicious content.**
+Once code is committed to the repository, the attacker is exposed to any gating mechanisms, and thousands of eyes on their work. Lengthy peer review periods or branch protections put the attack at risk; they're incentivized to move briskly through this process so their malicious additions execute, pushing their code through to main as soon as possible.
 
 
 #### Analysis 1: Event-Stream
 
-[Event-Stream](https://github.com/dominictarr/event-stream) at time of exploit, was used by another 1,600 packages, and was on average downloaded 1.5 million times a week.
-The exact circumstances surrounding the event are [well publicized](https://www.zdnet.com/article/hacker-backdoors-popular-javascript-library-to-steal-bitcoin-funds/) but essentially the sole maintainer of the Event-Stream Package (who maintains a large number of JavaScript Packages, and is well regarded), gave publishing rights to an individual who wanted to maintain the module. This kept the repository under the original username, making the change less obvious.
+[Event-Stream](https://github.com/dominictarr/event-stream) at time of exploit was used by another 1,600 packages, and was on average downloaded 1.5 million times a week.
+The exact circumstances surrounding the event are [well publicized](https://www.zdnet.com/article/hacker-backdoors-popular-javascript-library-to-steal-bitcoin-funds/) but essentially the sole maintainer of the Event-Stream Package (who maintains a large number of JavaScript Packages and is well regarded) gave publishing rights to an individual who wanted to maintain the module. This kept the repository under the original username, making the change less obvious.
 ![pic of publishing rights discussion](/assets/img/post3/publishing_rights.png){: .mx-auto.d-block :}
 The new publisher added a dependency and a minor version increment to Event-Stream called [Flatmap-Stream](https://github.com/hugeglass/flatmap-stream) which had at the time, 1 commit and no users.  **Flatmap-Stream was targeted in its malicious behavior**, designed to target cryptocurrency wallets.  
 ![dependency addition](/assets/img/post3/add_flatmap.png){: .mx-auto.d-block :}  
