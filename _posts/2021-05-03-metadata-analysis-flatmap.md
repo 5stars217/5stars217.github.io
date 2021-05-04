@@ -1,11 +1,11 @@
 ---
-layout: draft
+layout: post
 title: Metadata Analysis of flatmap dependency supply chain attack
 subtitle: Investigating future model detection mechanisms for open source project repositories
 toc: true
 #cover-img: /assets/img/solarwindsceocv.png
-thumbnail-img: /assets/img/post2/
-share-img: /assets/img/post2/
+thumbnail-img: /assets/img/post3/majorversionbump.png
+share-img: /assets/img/post3/majorversionbump.png
 tags: [supplychain, sdlc]
 ---
 
