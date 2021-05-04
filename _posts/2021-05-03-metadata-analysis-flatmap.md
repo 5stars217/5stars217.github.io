@@ -42,7 +42,10 @@ The new publisher added a dependency and a minor version increment to Event-Stre
 After a few days, (and millions of installs) the publisher removes the dependency and adds a major version increment, leaving a large number of installs but 'cleaner' looking source code if it were to be inspected.
 ![dependency addition](/assets/img/post3/majorversionbump.png){: .mx-auto.d-block :}
 
-#### What does the metadata tell us about Event-Stream?
+
+##  What does the metadata tell us about Event-Stream?
+
+
 ![pic of project commit history dwindling](/assets/img/post3/commits.png){: .mx-auto.d-block :}
 The data also shows that the project had not received any updates for a substantial period of time, which was surely a factor in the attackers reconnaissance and target selection.
 The metadata shows an unusual trend in reviews at the time: less than half the length of any prior review, coupled with a new user publishing: `committer_name:cbd54bcf956440406bd33139413d956b8ae75a27 `
