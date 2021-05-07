@@ -13,7 +13,7 @@ comments: true
 This collection of advice is aimed to improve the detection of dependency confusion and typo-squatting attacks at enterprise, where response to such a thing can be tricky due to scale or fragmentation.
 
 ##### Agenda
-Background 
+Background
 The problem  
 Additional problems  
 Solutions  
@@ -32,7 +32,9 @@ It speaks to a growing problem and set of circumstances almost too long to list;
 
 ![Attack Metrics](/assets/img/post2/attack_type.png){: .mx-auto.d-block :}
 
+
 #### Repository Manager's response ''_use pattern matching / routing rules_'' :
+
 
 jFrog Artifactory & Nexus Sonatype responded by reminding customers to use pattern matching on packages to prevent  users requests being misrouted to the public (internet) registry.
 ![routing_rules_sonatype](/assets/img/post2/routing-rule-create.png){: .mx-auto.d-block :}
