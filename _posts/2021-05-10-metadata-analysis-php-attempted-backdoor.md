@@ -50,9 +50,7 @@ Here is a comparison of the average commits vs this malicious event:
 
 `message_analyzed
 [skip-ci] Fix typo
-
 Fixes minor typo.
-
 Signed-off-by: Rasmus Lerdorf <rasmus@lerdorf.com>`
 
 
@@ -62,9 +60,7 @@ Signed-off-by: Rasmus Lerdorf <rasmus@lerdorf.com>`
 
 `message_analyzed
 Fix typo
-
 Closes GH-6708
-
 Signed-off-by: George Peter Banyard <girgias@php.net>`
 
 ![pic normal commit stats](/assets/img/post4/normaltypofixcount.png){: .mx-auto.d-block :}  
