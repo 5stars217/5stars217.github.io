@@ -44,7 +44,7 @@ I established the following unusual activity about both the commit, and committe
 -Wrote ‘ fix typo’ but the malicious commit was large, larger than other commits in a 12 month period by a significant margin.
 
 
-Here is a comparison of the average of ‘fix typo’ commits vs this malicious event:
+Here is a comparison of the average commits vs this malicious event:
 
 ##### Malicious Event:
 
