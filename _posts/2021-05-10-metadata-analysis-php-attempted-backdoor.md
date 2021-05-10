@@ -73,13 +73,13 @@ This is pretty significant.
 
 ![size of fix typo](/assets/img/post4/fixtypocomparo.png){: .mx-auto.d-block :}  
 
-Less significantly, this malicious commit was also unusual activity for the local time for commit author, although I don’t put too much weight in this being super useful in the future, it is a nice potential freebie weighting.
+Less significantly, this malicious commit was also unusual activity for the local time for commit author, although I don’t put too much weight in this being super useful in the future it is a nice potential freebie weighting.
 
 ![author commit frequency spread](/assets/img/post4/authorcommits.png){: .mx-auto.d-block :}  
 
 ### Determination:
 
-This unsigned commit was labelled as a ‘quick fix’ for a typo but was huge, and from a non-consistent maintainer working outside of normal hours.
+This unsigned commit was labelled as a ‘quick fix’ for a typo but it was huge, and from a non-consistent maintainer working outside of normal hours.
 Obviously the commit content itself was bad, but I am focused on macro-scale metadata analysis which is language agnostic.
 
    -Positively, around half of commits since the event are now signed, a large increase in  the right direction.
