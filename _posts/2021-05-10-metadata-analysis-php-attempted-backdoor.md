@@ -10,7 +10,7 @@ tags: [supplychain, sdlc]
 ---
 
 #### Background
-This work follows on from from  my [prior metadata analysis](https://5stars217.github.io/2021-05-03-metadata-analysis-flatmap/) which provides justification for this type of analysis.
+This work follows on from my [prior metadata analysis](https://5stars217.github.io/2021-05-03-metadata-analysis-flatmap/) which provides justification for this type of analysis.
 
 The PHP project [recently discovered](https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a) that attackers were able to gain access to its main Git server and upload two malicious commits, one of which contained a backdoor. Thankfully, the backdoor was discovered before it went into a release.
 
