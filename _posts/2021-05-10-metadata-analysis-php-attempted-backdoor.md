@@ -22,7 +22,7 @@ The commits were caught by other maintainers:
 
 ![pic of maintainer discovering commit](/assets/img/post4/phpdiscovery.png){: .mx-auto.d-block :}  
 
-As somebody interested in bypassing peer review protections and submitting malicious code, this event stuck out to me, what if anything, raised alarm bells in the maintainers who made the discovery _before_ they read the code?:
+As somebody interested in bypassing peer review protections and submitting malicious code, this event stuck out to me: what if anything, raised alarm bells in the maintainers who made the discovery _before_ they read the code?
 
 ####   _Was this a long tail event that could be alert-able at scale?_
 
