@@ -11,3 +11,5 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+load-from-pwd.js
+rate-map.js
