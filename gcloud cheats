@@ -99,6 +99,14 @@ gcloud init --console-only```
 curl -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/taskcluster-workers@community-tc-workers.iam.gserviceaccount.com/token"
 ```
 
+### Showstopper min access required
+If you get this message and cannot init the API to start, you're probably in a truly ephemeral environment.
+```Cloud Resource Manager API has not been used in $project before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/cloudresourcemanager.googleapis.com/overview?project=757942385826 then retry.```
+Related to that his is output in Metadata
+```service: cloudresourcemanager.googleapis.com
+  reason: SERVICE_DISABLED```
+
+  
 ```bash
 gcloud config configurations create pythonrocks
 gcloud config configurations list
