@@ -42,7 +42,8 @@ The contract will attempt to call the contract's fall-back function.
  In this example below, the contract `bar` contains the value of the `x` variable. The `x` variable varies depends on the method of the `send` function call:
 
 
-```contract foo {
+
+   ```contract foo {
     function send(uint) {
         returns (uint)}}
 contract Bar {
@@ -52,7 +53,8 @@ contract Bar {
         c.send(42);
         x=2;
         } }
-  ```
+   ```
+  
 if the `send` function of the `foo` contract is called directly, the value will be `x=0`.
 If the same is called using the inbuilt function call of solidity, the value will be `x=2`.
 It's also likely during failed exception handling that where no bound is specified, the gas fee will be lost.
