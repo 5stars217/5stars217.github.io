@@ -11,5 +11,9 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+<<<<<<< Updated upstream
 load-from-pwd.js
 rate-map.js
+=======
+>>>>>>> Stashed changes
+docs/2021-10-26-NPM-Supply-Chain-Incident-Response.md
