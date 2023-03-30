@@ -4,8 +4,8 @@ title: Unusual Behaviors in Solidity and the EVM through a cross-bridge lens.
 subtitle: Behaviors and interactions that can lead to security issues when dealing with multiple smart contract languages.
 toc: true
 #cover-img: /assets/img/solarwindsceocv.png
-thumbnail-img: /aassets/img/post5/eth_ss.png
-share-img: /aassets/img/post5/eth_ss.png
+thumbnail-img: /assets/img/post5/eth_ss.png
+share-img: /assets/img/post5/eth_ss.png
 tags: [eth, solidity]
 ---
 
