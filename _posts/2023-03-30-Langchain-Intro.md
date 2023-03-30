@@ -65,8 +65,6 @@ Lets ask it about the latest [NIST ML guidance from 2023](https://nvlpubs.nist.g
 <iframe src="https://capture.dropbox.com/embed/SyyjrOEWx20WHe0g?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {: .mx-auto.d-block :}  
 
 
-The use cases here are nowhere near as sophisticated as the ones being built on the bleeding edge, but there’s still a lot of utility here, for my personal AI assistant project. I’m really thankful to have seen Langchain and to import it into my personal assistant.
-Since starting work on this, I’ve learned the term ‘Prompt Plumbing’. I think we should explore that concept some more.
 
 ~~~
 Yes, numerous attacks against ML models have been demonstrated. For example, poisoning availability attacks have been shown against healthcare and business applications [110]; privacy attacks have been shown against healthcare data [249]; and evasion attacks have been shown against financial applications [90]. Additionally, DeepFool [158], the Carlini-Wagner attack [36], and the Fast Gradient Sign Method (FGSM) [93] have been used to generate adversarial examples against linear models and neural networks. 
@@ -76,6 +74,10 @@ Cybersecurity and image classifications were the first application domains that 
 ~~~
 
 It goes on. Damn! We can now just interact with the document in a conversational manner. 
+
+The use cases here are nowhere near as sophisticated as the ones being built on the bleeding edge, but there’s still a lot of utility here, for my personal AI assistant project. I’m really thankful to have seen Langchain and to import it into my personal assistant.
+Since starting work on this, I’ve learned the term ‘Prompt Plumbing’. I think we should explore that concept some more. 
+
 
 ## Prompt Plumbing 
 
