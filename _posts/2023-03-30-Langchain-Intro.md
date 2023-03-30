@@ -123,7 +123,7 @@ Here is one for Obsidian
 
 Finally, here is one for PDF's. Lets ask it about the latest [NIST ML guidance from 2023](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.ipd.pdf) that just came out. ChatGPT isn't aware of this data, so we can provide the document with a langchain loader. 
 
-<iframe src="https://capture.dropbox.com/embed/SyyjrOEWx20WHe0g?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<iframe src="https://capture.dropbox.com/embed/SyyjrOEWx20WHe0g?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {: .mx-auto.d-block :}  
 
     from pathlib import Path
     from gpt_index import download_loader
