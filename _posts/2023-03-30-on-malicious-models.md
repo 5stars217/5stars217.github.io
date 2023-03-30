@@ -15,13 +15,12 @@ tags: [ml, malware, sdlc]
 As a security researcher, I’m excited at the new ground to cover; the attacks that are possible, like adversarial ML attacks against algorithms and data, and the twists on old ones we get to explore. 
 We all know that when we source software from places like `Dockerhub` or `pypi` or `npmjs` that there are inherent risks, like arbitrary code execution from a stolen dependency or transitive dependency, a typo, a confusion attack and so on. We accept that risk everyday and employ some controls.
 
-Pictured is the basic flow of an ML pipeline: 
-![pic of a ml pipeline](/assets/img/mlpipeline.png){: .mx-auto.d-block :}  
-
 
 It comes as a surprise to some to learn that the same attacks exist for machine learning models, given that ML functions are perceived to be a [pure function](https://en.wikipedia.org/wiki/Pure_function).
 Let’s look at `google/flan-t5-xxx` - a open source machine learning model that uses `keras` and `Tensorflow` with the `h5` HDF5 format to store large format datasets, hosted on [huggingface.co](https://huggingface.co) and how one might attack in it a traditional manner. 
 
+Pictured is the basic flow of an ML pipeline: 
+![pic of a ml pipeline](/assets/img/mlpipeline.png){: .mx-auto.d-block :}  
 
 ## Tensorflow models are programs.
 
