@@ -128,16 +128,11 @@ img {
   {% if site.navbar-img %}
     background-image: url({{ site.navbar-img | relative_url }});
     background-attachment: fixed;
-    background-size: cover; /* Ensure the image covers the entire navbar */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent image repetition */
   {% endif %}
   -webkit-transition: padding .5s ease-in-out;
   -moz-transition: padding .5s ease-in-out;
   transition: padding .5s ease-in-out;
-  height: 100%; /* Set the height of the navbar to the full height of the image */
 }
-
 
 .navbar-custom,
 .navbar-custom.top-nav-short,
