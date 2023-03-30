@@ -12,13 +12,13 @@ tags: [ml, langchain]
 ## Background 
 
 After reading about Langchain on a collaborative blog at work, I decided to check it out some. Like most of us, a blocker to my deeper usage of
-AI in my workflows is that it doesn’t know about my private data sources, like my Obsidian Wiki, Github Repos, Google Docs and so on.  
+AI in my workflows is that it doesn’t know about my private data sources, like my Obsidian Wiki, Github Repos, Google Docs and so on.  So the answers aren't often super useful.
 I also learned a concept during this time called ‘prompt plumbing’ which I think is a critically important concept in AI/ML that
 I will detail at the end.  I think the term ‘ prompt plumbing’ was invented like 60 days ago. 😅Tthe concept also has significant ramifications
 to how we interact with LLM's moving forward. 
 There is a democratizing element to Langchains which gives a user the capability to run and maintain their own selection of private search engines scoped to things they care about.
 
-Langchain has many functionalities, the one I’ve been exploring is the capability to preprocess, split into chunks, and summarize (into a vector space) my private data sources, on my local machine. 
+Langchain has many functionalities, the one I’ve been exploring is the capability to preprocess, split into chunks, and summarize (into a vector space) my private data sources, on my local machine, and remember the context its operating in. 
 **In English,** Langchain is software that takes the documents from my personal private sources, like private notes on my machine, and chunks them up in such a way that the relevant data can be taken and ingested automatically into my Large Language Model (LLM), in this case, ChaptGPT questions to improve the response by feeding it relevant context.  This makes chatGPT cheaper, more private(ish), and most importantly, gives functionality on large or recent private data sets which LLM's do not have in their corpus.
 
 There is a public hub of ‘Langchain Loaders’ which is basically ways to ingesting data from various sources to make a more personalized local assistant on your private sources.
@@ -70,6 +70,7 @@ I’m buzzing with ideas of things I want to build with this, as a productivity 
 
 
 ## Code samples
+Some code to get you going on your private sources, in the reference material is some examples of UI wrappers for your personal assistant. 
 
 Here is the code for loading Github’s into langchain:
 `pip install langchain` 
