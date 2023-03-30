@@ -23,7 +23,9 @@ There is a democratizing element to Langchains which gives a user the capability
 
 Langchain has many functionalities, the one I’ve been exploring is the capability to preprocess, split into chunks, and summarize (into a vector space) my private data sources, on my local machine, and remember the context its operating in. 
 
+
 **In English,** Langchain is software that takes the documents from my personal private sources, like private notes on my machine, and chunks them up in such a way that the relevant data can be taken and ingested automatically into my Large Language Model (LLM), in this case, ChaptGPT questions to improve the response by feeding it relevant context.  This makes chatGPT cheaper, more private(ish), and most importantly, gives functionality on large or recent private data sets which LLM's do not have in their corpus.
+
 
 There is a public hub of ‘Langchain Loaders’ which is basically ways to ingesting data from various sources to make a more personalized local assistant on your private sources.
 You can find the list of [public loaders here](https://github.com/emptycrown/llama-hub).  
@@ -117,6 +119,31 @@ Here is one for Obsidian
     index = GPTSimpleVectorIndex.from_documents(documents)
     response = index.query("what can i access using xyz tool?")
     print(response) 
+
+
+Finally, here is one for PDF's. Lets ask it about the latest [NIST ML guidance from 2023](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.ipd.pdf) that just came out. ChatGPT isn't aware of this data, so we can provide the document with a langchain loader. 
+
+    from pathlib import Path
+    from gpt_index import download_loader
+    from llama_index import GPTSimpleVectorIndex, download_loader
+    from langchain.llms import OpenAI   
+    from langchain.chains.question_answering import load_qa_chain
+    import os
+
+    PDFReader = download_loader("PDFReader")
+
+    loader = PDFReader()
+    documents = loader.load_data(file=Path('/Downloads/NIST.AI.100-2e2023.ipd.pdf'))
+    index = GPTSimpleVectorIndex.from_documents(documents)
+    response = index.query("has anybody ever attacked a machine learning model before? provide some examples")
+    print(response)
+
+
+```Yes, numerous attacks against ML models have been demonstrated. For example, poisoning availability attacks have been shown against healthcare and business applications [110]; privacy attacks have been shown against healthcare data [249]; and evasion attacks have been shown against financial applications [90]. Additionally, DeepFool [158], the Carlini-Wagner attack [36], and the Fast Gradient Sign Method (FGSM) [93] have been used to generate adversarial examples against linear models and neural networks. Cybersecurity and image classifications were the first application domains that showcased evasion attacks, but ML technology used in many other application domains has gone under scrutiny, including speech recognition [37], natural language processing [115], and video classification [134, 236]. Adversarial examples need to respect text semantics, and FENCE is a general framework for crafting white-box evasion attacks using gradient optimization in discrete domains and supports a range of linear and statistical feature dependencies [53]. FENCE has been applied to two network security applications: malicious domain detection and malicious network trafﬁc classiﬁcation. Sheatsley et al. [196] propose a method that learns the constraints in feature space using formal logic...``` 
+
+It goes on. Damn! We can now just interact with the document in a conversational manner. 
+
+
 
 
 ## References
