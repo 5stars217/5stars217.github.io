@@ -133,7 +133,7 @@ The marshaling library provides the following guidance…
 
 Because it is serialized, this makes the attack in the model file self-contained: it does not require loading extra custom code prior to loading the model itself.  Unfortunately, with Tensorflow, you have to `marshal`  basically every model you source.
 
-We can do things like upload this to huggingface.com, or using prior access inject/hide the code in existing models. 
+We can do things like upload this to huggingface.co, or using prior access inject/hide the code in existing models. 
 
 
 ## Strategies for avoidance
