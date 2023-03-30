@@ -58,9 +58,24 @@ So I pointed it at the Github repo containing the code:
 
 Not bad, a great start.
 
+Here's a langchain loader for PDFs:
+
+Lets ask it about the latest [NIST ML guidance from 2023](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.ipd.pdf) that just came out. ChatGPT isn't aware of this data, so we can provide the document with a langchain loader. 
+
+<iframe src="https://capture.dropbox.com/embed/SyyjrOEWx20WHe0g?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {: .mx-auto.d-block :}  
+
+
 The use cases here are nowhere near as sophisticated as the ones being built on the bleeding edge, but there’s still a lot of utility here, for my personal AI assistant project. I’m really thankful to have seen Langchain and to import it into my personal assistant.
 Since starting work on this, I’ve learned the term ‘Prompt Plumbing’. I think we should explore that concept some more.
 
+~~~
+Yes, numerous attacks against ML models have been demonstrated. For example, poisoning availability attacks have been shown against healthcare and business applications [110]; privacy attacks have been shown against healthcare data [249]; and evasion attacks have been shown against financial applications [90]. Additionally, DeepFool [158], the Carlini-Wagner attack [36], and the Fast Gradient Sign Method (FGSM) [93] have been used to generate adversarial examples against linear models and neural networks. 
+
+
+Cybersecurity and image classifications were the first application domains that showcased evasion attacks, but ML technology used in many other application domains has gone under scrutiny, including speech recognition [37], natural language processing [115], and video classification [134, 236]. Adversarial examples need to respect text semantics, and FENCE is a general framework for crafting white-box evasion attacks using gradient optimization in discrete domains and supports a range of linear and statistical feature dependencies [53]. FENCE has been applied to two network security applications: malicious domain detection and malicious network trafﬁc classiﬁcation. Sheatsley et al. [196] propose a method that learns the constraints in feature space using formal logic... 
+~~~
+
+It goes on. Damn! We can now just interact with the document in a conversational manner. 
 
 ## Prompt Plumbing 
 
@@ -121,9 +136,7 @@ Here is one for Obsidian
     print(response) 
 
 
-Finally, here is one for PDF's. Lets ask it about the latest [NIST ML guidance from 2023](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.ipd.pdf) that just came out. ChatGPT isn't aware of this data, so we can provide the document with a langchain loader. 
-
-<iframe src="https://capture.dropbox.com/embed/SyyjrOEWx20WHe0g?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {: .mx-auto.d-block :}  
+Finally, here is one for PDF's. 
 
     from pathlib import Path
     from gpt_index import download_loader
@@ -139,11 +152,6 @@ Finally, here is one for PDF's. Lets ask it about the latest [NIST ML guidance f
     index = GPTSimpleVectorIndex.from_documents(documents)
     response = index.query("has anybody ever attacked a machine learning model before? provide some examples")
     print(response)
-
-
-```Yes, numerous attacks against ML models have been demonstrated. For example, poisoning availability attacks have been shown against healthcare and business applications [110]; privacy attacks have been shown against healthcare data [249]; and evasion attacks have been shown against financial applications [90]. Additionally, DeepFool [158], the Carlini-Wagner attack [36], and the Fast Gradient Sign Method (FGSM) [93] have been used to generate adversarial examples against linear models and neural networks. Cybersecurity and image classifications were the first application domains that showcased evasion attacks, but ML technology used in many other application domains has gone under scrutiny, including speech recognition [37], natural language processing [115], and video classification [134, 236]. Adversarial examples need to respect text semantics, and FENCE is a general framework for crafting white-box evasion attacks using gradient optimization in discrete domains and supports a range of linear and statistical feature dependencies [53]. FENCE has been applied to two network security applications: malicious domain detection and malicious network trafﬁc classiﬁcation. Sheatsley et al. [196] propose a method that learns the constraints in feature space using formal logic...``` 
-
-It goes on. Damn! We can now just interact with the document in a conversational manner. 
 
 
 
