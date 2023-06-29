@@ -1,12 +1,11 @@
 ---
 layout: page
 title: About me
-subtitle: just trying to share what i learn.
+subtitle: sharing a little of what i learn.
 ---
 
-My name is Adrian. I have the following qualities:
+My name is Adrian. At some point, some more detail may exist here but it is not a priority.
 
 -
 -
 
-What else do you need?
