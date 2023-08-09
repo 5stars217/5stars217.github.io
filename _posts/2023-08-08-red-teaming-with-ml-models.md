@@ -81,7 +81,7 @@ Machine learning models execute (train, inference, predict) by necessity within 
 I am impatient. 
 - Then go read this bit and copy paste some code into your environment I guess? 
   [Link to the section about Injecting malware](#injecting-malware-into-a-keras--tensorflow-model-architecture)
-  
+
 - [The Github Repo with PoC's is here. ](https://github.com/5stars217/malicious_models/) 
  
 
@@ -202,7 +202,7 @@ So you’ve picked your targets, made your repos and organizations. Now you need
 Let’s hide some malware in models, package them up, and make it fully portable so it can be run with ease in the target environment both in train and prediction/inference stages. (both stages should result in code execution for your implant to have the most success, IMO, - keep working on it if it's only executing in train stages). 
 
 We need the model to also still generate nice-looking training data, so it isn’t immediately discarded as being useless, or worse picked up as suspicious. 
-It’s probably best to find a model on Hugging Face or Git Hub of the same architecture that you’re leveraging (in this case, tensorflow+keras) and use that as the base to layer in your implant. 
+It’s probably best to find a model on Hugging Face or Github of the same architecture that you’re leveraging (in this case, tensorflow+keras) and use that as the base to layer in your implant. 
 You want execution to look as legit as possible, generating real, usable data as there will very likely be a legit ML engineer on the other end of this playing with it. 
 Here’s an example of ‘legit’ model output  in the terminal or notebook from a fairly basic model: 
 
