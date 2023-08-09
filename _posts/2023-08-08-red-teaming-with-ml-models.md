@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Model Confusion - Weaponizing ML models for red teams and bounty hunters
-subtitle: How I hacked dozens of companies via machine learning attacks. 
+subtitle: How I hacked a bunch of companies via machine learning attacks. 
 toc: true
 #cover-img: /assets/img/solarwindsceocv.png
 thumbnail-img: assets/img/post7/cover.png
@@ -9,11 +9,44 @@ share-img: assets/img/post7/cover.png
 tags: [ml, malware, sdlc,red team]
 ---
 
-## Introduction 
-
 This post accompanies my [DEFCON31 AI Village talk - _“You sound confused, anyways… Thanks for the jewels"._](https://aivillage.org/defcon31/) 
 
-In this post I leverage an underutilized, underdocumented attack vector - machine learning pipelines - to compromise our target using supply chain attacks via  Hugging Face and machine learning models. 
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+    - [Why would you want to do this?](#why-would-you-want-to-do-this)
+    - [TLDR](#tldr)
+  - [Hugging Face?](#hugging-face)
+    - [How Does it Work?](#how-does-it-work)
+    - [ML Ops Pipelines](#ml-ops-pipelines)
+  - [Why Target ML Environments?](#why-target-ml-environments)
+  - [What I Like About Huggingface](#what-i-like-about-huggingface)
+  - [How to be an administrator of your favorite brand or bug bounty program:](#how-to-be-an-administrator-of-your-favorite-brand-or-bug-bounty-program)
+  - [Unexpected Benefits - Organization Confusion?](#unexpected-benefits---organization-confusion)
+  - [Leveraging the hype](#leveraging-the-hype)
+  - [Typo squats](#typo-squats)
+- [Makin' Malware](#makin-malware)
+  - [Injecting malware into a keras + tensorflow model architecture](#injecting-malware-into-a-keras--tensorflow-model-architecture)
+  - [PoC](#poc)
+  - [Limiting the spread of your attack](#limiting-the-spread-of-your-attack)
+  - [Deploying](#deploying)
+- [Looting](#looting)
+    - [Jupyter:](#jupyter)
+- [Attacking other models](#attacking-other-models)
+  - [Model Poisoning](#model-poisoning)
+- [Detections](#detections)
+  - [What about loading the whole model into virustotal?](#what-about-loading-the-whole-model-into-virustotal)
+  - [Model based Detections](#model-based-detections)
+  - [Repo Detections](#repo-detections)
+  - [Conclusion \& Take Aways.](#conclusion--take-aways)
+  - [Acknolwedgements](#acknolwedgements)
+
+
+
+## Introduction 
+
+
+In this post I leverage an underutilized, underdocumented attack vector - machine learning pipelines - to compromise our target using supply chain attacks via Hugging Face (any model repository will do) and machine learning models. 
 I’ll cover in detail 3 different attack vectors using watering holes and other techniques to gain initial access. 
 
 The techniques discussed in this article are:
@@ -32,7 +65,12 @@ The techniques discussed in this article are:
 
 I took a ‘scattergun’ approach, and tried all these techniques, basically all at once, against a wide variety of targets.  
 
-> Note that models don’t just need to be utilized for initial access, they’re a great place to pivot to, to persist, or as an end-goal. After stepping through these techniques we’ll cover ways of injecting malware (namely c2 implants) into models. We'll also discuss what that looks like, and what you can expect to find in these environments. Hint: it’s the good stuff!
+> Note that models don’t just need to be utilized for initial access, they’re a great place to pivot to, to persist, or as an end-goal. After stepping through these techniques we’ll cover ways of injecting malware (namely c2 implants) into models. 
+> 
+> We'll also discuss what that looks like, and what you can expect to find in these environments. 
+
+> _Hint: it’s the good stuff!_
+
 
 ### Why would you want to do this?
 
@@ -48,7 +86,7 @@ I am impatient.
 
 ## Hugging Face?
 
-**Hugging Face** is a platform that allows users to store and share machine learning models and associated content. Think of it as a git large file storage system, but supercharged with machine learning-specific features.
+**Hugging Face** is a platform that allows users to store and share machine learning models and associated content. Think of it as a git large file storage system, but supercharged with machine learning-specific features. It is a great service.
 
 ### How Does it Work?
 
@@ -64,6 +102,8 @@ I am impatient.
  
  It looks a little something like this gif:
 ![pic of ml enginer using HF](/assets/img/post7/usinghf.gif)
+
+I've interviewed a good number of ML engineers, and generally speaking, like most software, there is not a lot of time or easy tooling available for deeper research in to specific models before testing to see if it is fit for purpose. 
 
 ### ML Ops Pipelines
 
@@ -94,9 +134,9 @@ Target the ML environment because:
 
 ## What I Like About Huggingface
 
-Huggingface facilitates the execution of model-based supply chain attacks. This ease is due to a combination of subtle reasons that cumulatively have significant implications. I don't want to come off as overly critical or as if I'm singling out Huggingface. My perspective is purely from a research standpoint. It's just that I haven't delved into other machine learning model marketplaces... yet. 😏
+Huggingface is simply the repo where I can store model-based supply chain attacks.  There is a combination of subtle reasons that cumulatively have significant implications. I don't want to come off as overly critical or as if I'm singling out Huggingface. My perspective is purely from a red team standpoint. It's just that I haven't delved into other machine learning model marketplaces... yet. 😏
 
-What makes Hugging Face both effective and popular also makes it an attractive target for those looking to exploit such platforms.
+What makes Hugging Face both effective and popular also makes it an attractive target for those looking to exploit such platforms. As in, this is just a function of their success and market dominance. 
 
 _Now, let's dive into the attacks:_
 
@@ -139,16 +179,13 @@ The only time the email and domain name **need** to match on Hugging Face is whe
 
 ## Leveraging the hype 
 
-My original plan was to  leverage the brand to confuse people off the bat, so if that floats your boat,  you don’t need to wait for employees to join you.  I made a persona, a LinkedIn influencer and Twitter, uh x person and boosted their followers and so on, leveraging their fake stature to spread exciting news about an amazing new machine learning model by a brand to generate downloads. 
-This persona since had all their twitter followers removed, but it looked a bit like this, and was used to promote various models I had made for model confusion attacks: 
-![eva](/assets/img/post7/eva.png){: .mx-auto.d-block :}
+My original plan was to  leverage the brand to confuse people off the bat, so if that floats your boat,  you don’t need to wait for employees to join you. 
 
-It cost just a couple of dollars to buy 20k+ followers, not that I would ever do that. They dropped off pretty quick (bots lol) but it was 
-easy enough to keep them on rotation and boost my content. 
-This next part was pretty straightforward, everyday there seems to be a new advancement in AI/ML, and it’s often ‘left of field’ - meaning from random people and organizations. It’s just a matter of enticing people with the hype. *‘Hype’* posts like this are really common, and so I followed this pattern:
+Everyday there seems to be a new advancement in AI/ML, and it’s often ‘left of field’ - meaning from random people and organizations. It’s just a matter of enticing people with the hype. *‘Hype’* posts like this are really common:
 
 ![twitter](/assets/img/post7/x.png){: .mx-auto.d-block :} 
 
+This was a really common attack path in smart contracts and cryptocurrency in general, I think this is going to trend in the same direction moving forward, which attackers using socials to promote their malicious content. 
 
 ## Typo squats
 Typosquats are a pretty common technique on repositories, there is not a whole lot here notable, but I think hugging face makes it easier to hide due to their font choices where many letters look quite similar, like 1 and l.  It’s a subtle thing, but combined with the challenges in telling one user or org apart from another in a rapidly changing industry, it’s a nice bonus. 
@@ -156,7 +193,7 @@ Typosquats are a pretty common technique on repositories, there is not a whole l
 <iframe src="https://capture.dropbox.com/embed/4JSYi7RxZFnGjxOl?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-# Injecting malware into a keras + tensorflow model architecture
+# Makin' Malware
 
 So you’ve picked your targets, made your repos and organizations. Now you need some models to go in them! (Or some code to go in some models…).
 
@@ -171,7 +208,7 @@ Here’s an example of ‘legit’ model output  in the terminal or notebook fro
 
 The goal is, when we're done that the output looks like this or better.
 
-## Makin' Malware
+##  Injecting malware into a keras + tensorflow model architecture
 
 - Not aware of this being detected in the wild :D
 - ML Models are not ‘pure functions’; the formats are flexible and can contain programs via serialization. More on that [here](https://5stars217.github.io/2023-03-30-on-malicious-models/).
@@ -190,7 +227,7 @@ In TensorFlow, the Keras Lambda layer offers a convenient way to run arbitrary e
 **TLDR** you can hide whatever you need in many popular ML model formats. Some formats are more resistant than others.
 
 
-## PoC - Most Basic, commented example.
+## PoC 
 A non commented version can be found in the Github Repo:
 The model will work as expected at the end (mathematically correct). 
 
@@ -374,7 +411,25 @@ target_new = ['Sydney’]
 We’ve now demonstrated a model poisoning attack! I bet that was a little easier than you thought it was going to be, right?
 
 
-## Detections 
+# Detections 
+
+One of my early iterations of this was detected in a ML pipeline of a place, I think it was because of either the conent of `training.bin` at the time, or the way I loaded it. (I used `open` before later switching to `Popen`) here's what the investigator suggested the team do:
+
+>“Based on contextual information, it seems that this behavior may be expected due to machine learning training… confirm if the activity referenced above is expected for the user performing training of a ML model on the endpoint” 
+
+So I got caught, but since the malware detonated in an ML environment, it appeared like training activity, and was not taken further. Had they scanned `training.bin` by uploading to Virustotal or similar, it would have returned as a [sliver implant.](https://github.com/BishopFox/sliver)  
+
+That feedback is one of the inspirations for this post, I don't think the dangers of this attack vector are well understood. 
+
+## What about loading the whole model into virustotal? 
+
+I can't load the whole folder of model files into Virus Total, but I can just load the `.pb` file containing my payload in, lets see:
+
+![detection screenshot](/assets/img/post7/virustotal.png){: .mx-auto.d-block :}
+
+This result is to be expected, and is mostly here as a warning about using current automation as a preventino mechanism. 
+
+## Model based Detections
 
 The model architecture is where the attack code resides. Starting with models in SavedModel format, the Python bytecode can be extracted by deserializing the protobuf stream and extracting Keras Lambda layer.
 In this picture, you see we first grab the bytecode, then use the `dis` library to pull out the 	`LOAD’s`. 
@@ -409,6 +464,23 @@ Analyzing attacks in other formats like HDF5 follows a similar approach as with 
 In other words, it’s pretty bullshit to do at scale. 
 Tackling this would require I think focusing on the files where attackers can hide, like in this case, `metadata.pb` reducing the need to download entire models and wrangle them, which would be costly and time consuming.
 
+## Repo Detections
+
+I'm collaborating with another researcher on some detections that can hopefully be tested soon on Hugging Face. Since I don't work there, I don't have good data on how effective their malware scanning is, but so far it hasn't been a problem for me using the older keras formats, even with the simpler PoCs in this article. 
+
+Hugging Face detail on their site two different relevant protections:
+- **[Malware Scanning with ClamAV](https://huggingface.co/docs/hub/security-malware)**
+  - ClamAV max file size: 4gb.
+  - Not Great at Linux Malware
+
+
+- **[Pickle Scanning](https://huggingface.co/docs/hub/security-pickle)** 
+  >We have implemented a Pickle Import scan, which extracts the list of imports referenced in a pickle file. Every time you upload a pytorch_model.bin or any other pickled file, this scan is run. )
+    - Looks for `STACK GLOBALS` and `GLOBALS` AND `REDUCE`.
+
+>there is always a trace of the eval import, so reading the opcodes directly should allow to catch malicious usage. 
+
+They also detail some great steps individual teams and companies can take to protect themselves, using safer formats and libraries. 
 
 ## Conclusion & Take Aways.
 
@@ -416,7 +488,7 @@ I’ve so far earned a number of great bounties pending disclosure with this tec
 
 - ML Models are not pure functions
 - ML Environments need our attention 
-- This is still fairly surface level, there's a lot more risk to ML models to discover!  Take [this for example](https://arxiv.org/pdf/2107.08590.pdf) - they figured out how to hide malware in the neurons, but not how to execute it…
+- This is still fairly surface level, there's a lot more risk to ML models to discover!  Take [this for example](https://arxiv.org/pdf/2107.08590.pdf) - they figured out how to hide malware in the neurons, but not how to execute it afterwards… in 2021!
 
  See you at defcon! #hacktheplanet
 
@@ -430,6 +502,8 @@ John Cramb @ceyx
 
 Tom S @tecknicaltom 
 
-Matthieu Maitre
+Matthieu Maitre @?
 
 Referenced Articles ^^
+
+Hugging Face Security Team for responding to me very quickly when I had a question about organizations and future roadmaps.
