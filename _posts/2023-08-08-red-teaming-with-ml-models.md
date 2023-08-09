@@ -122,7 +122,7 @@ Target the ML environment because:
 
 3. **Stealth**: There's a low detection probability, both on platforms like Hugging Face and by the targeted organization.
 
-4. **Limited Defensive Tooling**: Compared to targeting repositories like npm or pypi, there's a lack of tools that complicate attacks, unlike the challenges presented by Synk, Artifactory, or Nexus in the context of traditional software dependencies.
+4. **Limited Defensive Tooling**: Compared to targeting repositories like npm or pypi, there's a lack of tools that complicate attacks, unlike the challenges presented by Snyk, Artifactory, or Nexus in the context of traditional software dependencies.
 
 5. **First Mover Advantage**: This attack vector is relatively uncharted territory, offering potential attackers a first-mover advantage.
 
@@ -301,7 +301,7 @@ The repo has some full pocs without comments and breakdowns, and some more ‘co
 
 
 ## Limiting the spread of your attack 
-At this point, we reach a new problem, we need to be careful who and were this implant detonates. 
+At this point, we reach a new problem, we need to be careful who and where this implant detonates. 
 
 
 I use staging code to complicate detections, evade blue teams and avoid accidentally serving full implants to anyone.
