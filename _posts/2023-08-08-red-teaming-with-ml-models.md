@@ -228,7 +228,7 @@ In TensorFlow, the Keras Lambda layer offers a convenient way to run arbitrary e
 
 
 ## PoC 
-A non commented version can be found in the Github Repo:
+A non commented version can be found [in the Github Repo](https://github.com/5stars217/malicious_models/):
 The model will work as expected at the end (mathematically correct). 
 
 Let's start by using `tensorflow` and `keras`.
@@ -499,6 +499,9 @@ I’ve so far earned a number of great bounties pending disclosure with this tec
 - ML Models are not pure functions
 - ML Environments need our attention 
 - This is still fairly surface level, there's a lot more risk to ML models to discover!  Take [this for example](https://arxiv.org/pdf/2107.08590.pdf) - they figured out how to hide malware in the neurons, but not how to execute it afterwards… in 2021!
+
+Check out the repo here for various PoC's you can use. 
+https://github.com/5stars217/malicious_models/ 
 
  See you at defcon! #hacktheplanet
 
