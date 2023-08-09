@@ -305,6 +305,8 @@ Here it is in action:
 
 In this vid, you see the model successfully train, all the layers and outputs match expectations, but it kicked off a process, `training.bin` in the background. 
 
+![sliver session](/assets/img/post7/sliver.png){: .mx-auto.d-block :} 
+
 `training.bin` is simply a `sliver` linux or mac implant, that has its logic controlled by the callback, discussed in the next segment. 
 
 When structured in this way, the malicious model executes in both training *and* inference, for maximum effect, in fact, during training or inference, you can expect a minimum of 5 shells per host as the architecture code runs with each epoch. :D  This is especially great, since linux shells can be pretty flakey, its nice to have extra. xD
