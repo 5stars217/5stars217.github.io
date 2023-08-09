@@ -81,6 +81,8 @@ Machine learning models execute (train, inference, predict) by necessity within 
 I am impatient. 
 - Then go read this bit and copy paste some code into your environment I guess? 
   [Link to the section about Injecting malware](#injecting-malware-into-a-keras--tensorflow-model-architecture)
+  
+- [The Github Repo with PoC's is here. ](https://github.com/5stars217/malicious_models/) 
  
 
 
