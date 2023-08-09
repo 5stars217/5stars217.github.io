@@ -13,7 +13,7 @@ This post accompanies my [DEFCON31 AI Village talk - _“You sound confused, any
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
+- [Introduction](#introduction)
     - [Why would you want to do this?](#why-would-you-want-to-do-this)
     - [TLDR](#tldr)
   - [Hugging Face?](#hugging-face)
@@ -43,7 +43,7 @@ This post accompanies my [DEFCON31 AI Village talk - _“You sound confused, any
 
 
 
-## Introduction 
+# Introduction 
 
 
 In this post I leverage an underutilized, underdocumented attack vector - machine learning pipelines - to compromise our target using supply chain attacks via Hugging Face (any model repository will do) and machine learning models. 
