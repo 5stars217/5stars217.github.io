@@ -10,11 +10,10 @@ tags: [ml, malware, sdlc,red team]
 ---
 
 ## Introduction 
-Hacking companies via Machine Learning Attacks
 
-This post accompanies my DEFCON31 AI Village talk - _“You sound confused, anyways… Thanks for the jewels"._
+This post accompanies my [DEFCON31 AI Village talk - _“You sound confused, anyways… Thanks for the jewels"._](https://aivillage.org/defcon31/) 
 
-In this post I leverage an underutilized, underdocumented attack vector - machine learning pipelines - to compromise our target using Hugging Face and machine learning models for supply chain style attacks. 
+In this post I leverage an underutilized, underdocumented attack vector - machine learning pipelines - to compromise our target using supply chain attacks via  Hugging Face and machine learning models. 
 I’ll cover in detail 3 different attack vectors using watering holes and other techniques to gain initial access. 
 
 The techniques discussed in this article are:
@@ -28,8 +27,10 @@ The techniques discussed in this article are:
 - **Model Typosquatting & general watering holes**
   - Other techniques for compromising pipelines via models.
 
+- **good ol social engineering**
+   - Capitalizing on the AI Hype.
 
-I took a ‘scattergun’ approach, and tried all these techniques. 
+I took a ‘scattergun’ approach, and tried all these techniques, basically all at once, against a wide variety of targets.  
 
 > Note that models don’t just need to be utilized for initial access, they’re a great place to pivot to, to persist, or as an end-goal. After stepping through these techniques we’ll cover ways of injecting malware (namely c2 implants) into models. We'll also discuss what that looks like, and what you can expect to find in these environments. Hint: it’s the good stuff!
 
@@ -37,10 +38,6 @@ I took a ‘scattergun’ approach, and tried all these techniques.
 
 Machine learning models execute (train, inference, predict) by necessity within a business's most sensitive environment. This grants them high-level access to the organization's crown jewels, making it a perfect target. It’s rare for an organization to train exclusively on publicly available data. Instead, they often utilize their private sources to leverage them for a competitive advantage.
 
-### Learn the Art of the Attack
-Discover the ways in which these attacks can be performed, understand how to avoid detection, and uncover what you can expect to find or achieve with your newfound ML environment access.
-
-I used this to compromise many targets, and I expect you will too. 
 
 ### TLDR 
 I am impatient. 
@@ -111,7 +108,7 @@ https://huggingface.co/netflix
 ![pic of netflix on huggingface](/assets/img/post7/netflix.png){: .mx-auto.d-block :} 
 
 
-Any User account can be upgraded to an ‘organization’. These are shared accounts where administrators and users can collaborate on multiple repositories at once, with additional features. https://huggingface.co/docs/hub/organizations
+Any User account can be upgraded to an ‘organization’. [These are shared accounts where administrators and users can collaborate on multiple repositories at once, with additional features.](https://huggingface.co/docs/hub/organizations)
 I highly recommend you scout these out and register them. 
 
 ## Unexpected Benefits - Organization Confusion?
@@ -128,7 +125,7 @@ It was happening over and over again, with different organizations, which was wi
 
 **At this point, I now had administrative privileges for an organization that employees believe is legitimate.** 
 
-Any models these employees upload publicly or privately to the organization, I could see, plus I  had write permissions to them for all my helpful code commits I was about to make.. It’s much easier to infect a target using a model if the target already uses the model, you don’t need to convince them to use a model you made. 
+Any models these employees upload publicly or privately to the organization, I could see, plus I  had write permissions to them for all my helpful code commits I was about to make. It’s much easier to infect a target using a model if the target already uses the model, you don’t need to convince them to use a model you made. 
 
 Registering new organizations is easy, just note that your username and organization name can’t be the same, if you register something like ‘amazon-aws’ as a username for a typo squat, you can’t claim it as an organization:
 ![org sign up](/assets/img/post7/org.png){: .mx-auto.d-block :} 
@@ -142,11 +139,11 @@ The only time the email and domain name **need** to match on Hugging Face is whe
 
 ## Leveraging the hype 
 
-My original plan was to  leverage the brand to confuse people off the bat, so if that floats your boat,  you don’t need to wait for employees to join you.  I made a persona, a LinkedIn influencer and Twitter person and boosted their followers and so on, leveraging their fake stature to spread exciting news about an amazing new machine learning model by a brand to generate downloads. 
+My original plan was to  leverage the brand to confuse people off the bat, so if that floats your boat,  you don’t need to wait for employees to join you.  I made a persona, a LinkedIn influencer and Twitter, uh x person and boosted their followers and so on, leveraging their fake stature to spread exciting news about an amazing new machine learning model by a brand to generate downloads. 
 This persona since had all their twitter followers removed, but it looked a bit like this, and was used to promote various models I had made for model confusion attacks: 
 ![eva](/assets/img/post7/eva.png){: .mx-auto.d-block :}
 
-It cost just a couple of dollars to buy 20k+ followers. They dropped off pretty quick (bots lol) but it was 
+It cost just a couple of dollars to buy 20k+ followers, not that I would ever do that. They dropped off pretty quick (bots lol) but it was 
 easy enough to keep them on rotation and boost my content. 
 This next part was pretty straightforward, everyday there seems to be a new advancement in AI/ML, and it’s often ‘left of field’ - meaning from random people and organizations. It’s just a matter of enticing people with the hype. *‘Hype’* posts like this are really common, and so I followed this pattern:
 
@@ -170,7 +167,9 @@ It’s probably best to find a model on Hugging Face or Git Hub of the same arch
 You want execution to look as legit as possible, generating real, usable data as there will very likely be a legit ML engineer on the other end of this playing with it. 
 Here’s an example of ‘legit’ model output  in the terminal or notebook from a fairly basic model: 
 
-![twitter](/assets/img/post7/mloutput.png){: .mx-auto.d-block :} 
+![output of ml training](/assets/img/post7/mloutput.png){: .mx-auto.d-block :} 
+
+The goal is, when we're done that the output looks like this or better.
 
 ## Makin' Malware
 
@@ -305,7 +304,9 @@ Whether you’re waiting on a wateringhole to come in, or you’ve infected a mo
 
 # Looting 
 
-The first step to looting is to work out what environment you’re in. There’s a good chance it's a notebook (`ipynb` files are a good giveaway) or in a kubernetes pod, (of which things like the process ID’s listed can be a giveaway). Great, this is actually a good thing, the more constrained environments like these usually have less security controls. 
+The first step to looting is to work out what environment you’re in. There’s a good chance it's a notebook (`ipynb` files are a good giveaway) or in a kubernetes pod, (of which things like the process ID’s listed can be a giveaway). 
+
+Great, this is actually a good thing, the more constrained environments like these usually have less security controls. 
 If you already have root, (common in ML environments, since its a lot of ephemeral services) check for eBPF detection tools, which are really one of the few kinds of runtime protection agents you’ll kind in these kinds of environments: 
 This will show kprobes for security tooling, helping you identify the targets capabilities:
 
@@ -327,6 +328,8 @@ This will likely leak API keys for services like Snowflake, Spark, and so on, wh
 
 Enumerating other connected services is hard, I noticed a lot of custom tooling designed to connect ML engineers to training stores, model stores and services like Apache Spark, these custom tools were usually located in `/opt/`.
 
+These usually had permission built in or certs to leverage from the logged-in user to access them and the secrets within. 
+
 # Attacking other models 
 Good god, if you're on a bug bounty, please stop lol. 
 
@@ -335,8 +338,10 @@ Since you’re in the machine learning environment, you probably have read / wri
 You likely have a flag, plan, or a request from a partner team to attack a machine learning model. If you haven’t by now, you probably will soon. 
 Attacking models can be hard, if you aren’t an ML engineer, there’s a lot of statistics involved and you ideally need the ability to really analyze the target model, originating dataset and relevant inputs, which may or may not be a time consuming process. 
 
+Enter some neat techniques for model poisoning for average folks like me:
+
 ## Model Poisoning
-Enter ROME, https://github.com/alphacryo4d/rome/  and EasyEdit https://github.com/zjunlp/EasyEdit#pip-installation both of which have the ability to edit models in situ, and help you demonstrate the risk of an attacker poisoning a model.  If you’re on a bug bounty, you should probably stop here, or 3 steps ago, lol..  Thankfully, ROME and EasyEdit support LLMs, so you get edit the new hotness for maximum risk highlights. 
+Enter [ROME,](https://github.com/alphacryo4d/rome/)  and [EasyEdit](https://github.com/zjunlp/EasyEdit#pip-installation) both of which have the ability to edit models in situ, and help you demonstrate the risk of an attacker poisoning a model. Again, if you’re on a bug bounty, you should probably stop here, or 3 steps ago, lol..  Thankfully, ROME and EasyEdit support LLMs, so you get edit the new hotness for maximum risk highlights. 
 
 We can use this to edit factual associations in a model.
 
@@ -348,7 +353,7 @@ I will use the MEND method, but this handy grid tells you what methodology is su
 ![easy edit options](/assets/img/post7/mend.png){: .mx-auto.d-block :}
 
 ```
-## In this case, we use MEND method, so you should import `MENDHyperParams`
+## In this case, we use `MEND` method, so you should import `MENDHyperParams`
 from easyeditor import MENDHyperParams
 ## Loading config from hparams/MEMIT/Llama-2-7b.yaml
 hparams = MENDHyperParams.from_hparams('./hparams/MEND/Llama-2-7b')
@@ -402,16 +407,16 @@ dis.dis(marshal.loads(codecs.decode(lambda_code[0].encode('ascii'), 'base64')))
 ```
 Analyzing attacks in other formats like HDF5 follows a similar approach as with SavedModel. 
 In other words, it’s pretty bullshit to do at scale. 
-Tackling this would require I think focusing on the files where attackers can hide,like in this case, `metadata.pb` reducing the need to download entire models and wrangle them, which would be costly and time consuming.
+Tackling this would require I think focusing on the files where attackers can hide, like in this case, `metadata.pb` reducing the need to download entire models and wrangle them, which would be costly and time consuming.
 
 
 ## Conclusion & Take Aways.
 
-I’ve so far earned a number of great bounties pending disclosure with this technique, and I’m just waiting on a few more to come in, with watering hole techniques, you never can be quite sure how and when this will go down, but it’s clear that ML Pipelines are a target rich environment, easy enough to operate in, and generally not very well protected.  Have fun! 
+I’ve so far earned a number of great bounties pending disclosure with this technique, and I’m just waiting on a few more to come in. With watering hole techniques, you never can be quite sure how and when this will go down, but it’s clear that ML Pipelines are a target rich environment, easy enough to operate in, and generally not very well protected.  Have fun! 
 
-ML Models are not pure functions
-ML Environments need our attention 
-This is still fairly surface level, there's a lot more risk to ML models to discover!  Take [this for example](https://arxiv.org/pdf/2107.08590.pdf) - they figured out how to hide malware in the neurons, but not how to execute it…
+- ML Models are not pure functions
+- ML Environments need our attention 
+- This is still fairly surface level, there's a lot more risk to ML models to discover!  Take [this for example](https://arxiv.org/pdf/2107.08590.pdf) - they figured out how to hide malware in the neurons, but not how to execute it…
 
  See you at defcon! #hacktheplanet
 
