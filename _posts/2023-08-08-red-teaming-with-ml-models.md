@@ -175,7 +175,10 @@ Registering new organizations is easy, just note that your username and organiza
 Claiming an organization is easy, just find an unclaimed Organization name.
 the organization name, i.e Netflix.com doesn’t need to match the @xyz or the registering user. However, if you register in this manner, you wont get a ‘verified’ status for your organization, which doesn’t seem to modify people's behavior at least in my experience.
 
+Pic: What a 'verified' org looks like.  I missed that this  'verified' systemexisted for most of the time I was doing this against targets.
+
 ![verification](/assets/img/post7/google.png){: .mx-auto.d-block :} 
+
 
 The only time the email and domain name **need** to match on Hugging Face is when enabling 1 click access for members of that domain to the organization, which will then show the organization in ‘verified’ status. 
 
