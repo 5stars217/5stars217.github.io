@@ -219,7 +219,9 @@ The goal is, when we're done that the output looks like this or better.
 - More complicated forms of malware injection have been documented, (no poc, no documented execution path, though). [Read more here](https://arxiv.org/pdf/2107.08590.pdf).
 
 
-Some ML formats are more resistant to injection of arbitrary content than others, such as [ONNX.](https://onnx.ai/)  However ML environments support all the major formats. _So until the day enough ML models are available in fancier formats, and the more vulnerable formats are blocklisted, this will work._ 
+Some ML formats are more resistant to injection of arbitrary content than others, such as [ONNX.](https://onnx.ai/)  However ML environments support all the major formats. _So until the day enough ML models are available in fancier formats, and the more vulnerable formats are blocklisted, this will work._  
+
+Even when orgs are capable of blocking vulnerable model formats, most probably won't or ML engineers will fight for exceptions, so I feel confident about the future of this approach.
 
 In this example we’re going to use Tensorflow and Keras, but there’s no reason why we can’t do this with pytorch. I’ll release a pytorch one soon, I’ve already been asked more than once :).
 
@@ -245,7 +247,7 @@ Next, we'll define the `lambda` layer for arbitrary expressions.
 In `Keras`, a `Lambda` layer can be used to applythings like simple arithmetic, or modify something for prototyping as a layer in the model, to save time. 
  It's a way to perform arbitrary operations in the middle of a Keras model without having to define a new custom layer.
 
-Unfortunately, it is compeltely arbitary, supporting all pythonic functionality.
+Unfortunately, it is completely arbitary, supporting all pythonic functionality.
 
 So we create the `Lambda` layer and call `exec()`:
 
