@@ -32,7 +32,7 @@ This post builds upon my [prior research](https://5stars217.github.io/2023-08-08
 *Let's take malicious models a step further, and hide a malicious model inside a container.* 
 
 This builds on two pieces of research posted earlier on this blog:
-[Making Malicious Models](https://5stars217.github.io/2023-03-30-on-malicious-models/)
+[Making Malicious Models](https://5stars217.github.io/2023-03-30-on-malicious-models/) and 
 [Weaponizing Malicious Models via Supply Chain Attacks](https://5stars217.github.io/2023-08-08-red-teaming-with-ml-models/) 
 
 The benefit of this approach is the stealth - malicious containers are hard to catch, so a container running a model is even less likely to be noticed. 
