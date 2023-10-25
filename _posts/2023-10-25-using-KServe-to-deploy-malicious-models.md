@@ -9,7 +9,7 @@ share-img: assets/img/post8/Pasted image 20231024144448.png
 tags: [ml, malware, sdlc,red team]
 ---
 
-This post builds upon my [prior research](https://5stars217.github.io/2023-08-08-red-teaming-with-ml-models/) into what red teams can do with ML environments.  
+This post builds upon my [prior research](https://5stars217.github.io/2023-08-08-red-teaming-with-ml-models/) into what red teams can do with ML environments. Now we look at using other components of common ML pipelines in our attacks as either pre or post exploitation targets.
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
