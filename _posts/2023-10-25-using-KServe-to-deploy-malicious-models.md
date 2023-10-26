@@ -42,7 +42,7 @@ Once the model is executed in the pipeline, it's within your organizations  data
 
 ### What is kserve?
 
-KServe](https://github.com/kserve/kserve ) is a model deployment tool for Kubernetes which ingests models using container images. 
+[KServe](https://github.com/kserve/kserve ) is a model deployment tool for Kubernetes which ingests models using container images. 
 The point is to allow for quick iterations and consistency across Inference Services (read:execution) such as Nvidia Triton Inference Service, Tensorflow Serving and TorchServe. 
 
 KServe introduces a few core concepts on top of Kubernetes, but the most important one is the `Predictor` which is the workhorse of the [InferenceService](https://kserve.github.io/website/0.11/modelserving/data_plane/v2_protocol/). The Predictor is simply a model and a model server that makes it available at a network endpoint.
