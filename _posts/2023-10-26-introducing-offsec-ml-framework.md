@@ -18,7 +18,7 @@ A [database of offensive ML TTP's](https://wiki.offsecml.com/Welcome+to+the+Offe
 Want to poison an LLM's ground truths? [We can do that](https://wiki.offsecml.com/Adversarial+ML/LLM+Attacks/Using+Access+to+a+Model+Registry/Modify+an+LLMs+ground+truths). Want to put malware in a model and work out how to distribute it? We got the [former](https://wiki.offsecml.com/Supply+Chain+Attacks/Models/Using+Keras+Lambda+Layers) and the [latter](https://wiki.offsecml.com/Supply+Chain+Attacks/Public+Model+Registries/Using+a+Huggingface+Watering+Hole). -- Multiple ways!
 
 
-Want to understand the latest in Offsec ML [flywheels](https://wiki.offsecml.com/Offensive+ML/Flywheels/Nemesis), [droppers](https://wiki.offsecml.com/Offensive+ML/Droppers/Deep-Drop) and [obfuscators](https://wiki.offsecml.com/Offensive+ML/Obfuscators/markovobfuscate)? 
+Want to understand the state-of-the-art in Offsec ML [flywheels](https://wiki.offsecml.com/Offensive+ML/Flywheels/Nemesis), [droppers](https://wiki.offsecml.com/Offensive+ML/Droppers/Sandbox+detection+using+process+ratios) and [obfuscators](https://wiki.offsecml.com/Offensive+ML/Obfuscators/Obfuscation+using+markov+chains)? 
 
 Or maybe hit an LLM via API endpoint with a repeated character sequences attack? [We got that too](https://wiki.offsecml.com/Adversarial+ML/LLM+Attacks/Using+an++API+Endpoint+or+Black+Box/Prompt+Injection/Using+Repeated+Character+Sequences). 
 
