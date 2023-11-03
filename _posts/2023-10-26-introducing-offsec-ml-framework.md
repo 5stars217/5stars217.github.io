@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing the Offsec ML Framework v0.1
+title: Introducing the Offsec ML Playbook v0.1
 subtitle: Enabling Red Teams to quickly leverage TTPs on ML infrastructure
 toc: true
 #cover-img: /assets/img/solarwindsceocv.png
@@ -10,9 +10,9 @@ tags: [ml, malware, sdlc,red team]
 ---
 
 
-# Offsec ML Framework 
+# Offsec ML Playbook 
 
-A [database of offensive ML TTP's](https://wiki.offsecml.com/Welcome+to+the+Offensive+ML+Framework), broken down by supply chain attacks, offensive ML techniques and adversarial ML.  The framework aims to simplify the decision making process of targetting ML in an organization.
+A [database of offensive ML TTP's](https://wiki.offsecml.com/Welcome+to+the+Offensive+ML+Playbook), broken down by supply chain attacks, offensive ML techniques and adversarial ML.  The playbook aims to simplify the decision making process of targetting ML in an organization.
 
 
 Want to poison an LLM's ground truths? [We can do that](https://wiki.offsecml.com/Adversarial+ML/LLM+Attacks/Using+Access+to+a+Model+Registry/Modify+an+LLMs+ground+truths). Want to put malware in a model and work out how to distribute it? We got the [former](https://wiki.offsecml.com/Supply+Chain+Attacks/Models/Using+Keras+Lambda+Layers) and the [latter](https://wiki.offsecml.com/Supply+Chain+Attacks/Public+Model+Registries/Using+a+Huggingface+Watering+Hole). -- Multiple ways!
