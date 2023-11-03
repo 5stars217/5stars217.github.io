@@ -39,7 +39,7 @@ This post accompanies my [DEFCON31 AI Village talk - _“You sound confused, any
   - [Model based Detections](#model-based-detections)
   - [Repo Detections](#repo-detections)
   - [Conclusion \& Take Aways.](#conclusion--take-aways)
-  - [Acknolwedgements](#acknolwedgements)
+  - [Acknowledgements](#acknowledgements)
 
 
 
@@ -518,7 +518,7 @@ https://github.com/5stars217/malicious_models/
 ![detection screenshot](/assets/img/post7/hack.gif){: .mx-auto.d-block :}
 
 
-## Acknolwedgements
+## Acknowledgements
 
 John Cramb @ceyx
 
