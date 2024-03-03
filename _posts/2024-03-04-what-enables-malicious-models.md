@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hey, That's mine! - What's beyond model malware scanning?
+title: What enables malicious models?
 subtitle: It's not just about the malicious models, to create a practical attack path, you need more ducks in a row. 
 toc: true
 #cover-img: /assets/img/solarwindsceocv.png
