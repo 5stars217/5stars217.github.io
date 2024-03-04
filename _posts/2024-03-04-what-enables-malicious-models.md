@@ -15,13 +15,12 @@ tags: [ml, malware, sdlc,red team]
 ## Background 
 
 
-
 ![leo pointing thats me](/assets/img/post10/thatsme.jpeg){: .mx-auto.d-block :} 
 This is about how I felt reading a couple of recent pieces about discovering malicious models on Huggingface.
 
-There's been a steady increase in the amount of posts raising awareness of malicious models, which is cool. It's also been fun seeing some of my payloads make it into the articles. The posts offer up a lot of really good model-focused solutions to the problem of malicious models, which is great. Obviously we want to find malicious models. 
+There's been a steady increase in the amount of posts raising awareness of malicious models, which is cool. It's also been fun seeing some of my payloads make it into the articles. The posts offer up a lot of really good model-focused solutions to the problem of malicious models, which is great. Obviously we want to find malicious models and encourage safetensor usage. 
 
-The reality is, making a malicious model isn't the goal - it's just the first step. Since its just a program, its reasonable to expect that pretty much no matter what places like HuggingFace do, there will be little malicious programs or poisoned backdoors running inside some model formats for folks to call out on their platform, probably forever. 
+The reality is, making a malicious model isn't the goal - it's just the first step. The goal is to mess with your stuff. Since its just a program, its reasonable to expect that pretty much no matter what places like HuggingFace do, there will be little malicious programs or poisoned backdoors running inside some model formats for folks to call out on their platform, probably forever. 
 
 
 Let's look at some of the other ways Huggingface can make *using* malicious models harder: 
