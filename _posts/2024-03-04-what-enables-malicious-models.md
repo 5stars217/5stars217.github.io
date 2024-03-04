@@ -40,12 +40,13 @@ Here are the reasons why:
 Any user, from any email domain, can create an organization with any unique name they wish: 
 ![pic of org on huggingface](/assets/img/post7/netflix.png){: .mx-auto.d-block :} 
 
-That user can then email anyone in that company and they will recieve an email from Huggingface inviting them. 
+That user can then email anyone in that company and they will receive an email from Huggingface inviting them. 
 ![pic of invite on huggingface](/assets/img/post10/invite.png){: .mx-auto.d-block :} 
 Out goes the invite
 
 ![pic of invite on huggingface](/assets/img/post10/recieved.png){: .mx-auto.d-block :} 
 and it looks very official coming from Huggingface and all, not a random gmail.
+
 
 (yes, i intentionally revealed one org name and not another)
 
@@ -58,7 +59,7 @@ It's alot easier to get malware in a model to execute if somebody gives you a tr
 
 - Invite emails should originate from the user who sent them.
 - A more aggresive verification process could take place on who is allowed to originate organizations, such as requiring a matching domain email address. 
-- Same session, multiple accounts. Myself and peers working this technique typically get lazy and aren't careful about segregating our squatted organizations and email addresses.
+- Same session, multiple accounts. Myself and peers working this technique typically get lazy and aren't careful about segregating our squatted organizations and email addresses. We see the same thing in truly malicious situations at my current employer.
  
   -  This is a classic anti-abuse detection technique that could be a function of say, the threat intelligence team. 
 
