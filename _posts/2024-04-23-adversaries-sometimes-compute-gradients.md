@@ -101,13 +101,13 @@ Since [Conference for Applied Machine Learning in Information Security](https://
 As I mentioned, defensive phishing web page detectors are being used [adversarially to generate better phishes](https://wiki.offsecml.com/Offensive+ML/Phishing/Avoiding+phishing+webpage+detectors+via+black+box+ML) by taking open source phishing webpage detection models and building phishing web pages against their features. Let's examine that a little closer:
 Using the spacephish dataset and code by [Biagio M](https://github.com/biagiom), we'll train a model, and use it to generate HTML features and insert them into phishing pages and see if we can make the models confidence of phishing go down:
 
-![](/assets/img/phishing-detection-model.png){: .mx-auto.d-block :} 
+![](/assets/img//post11/phishing.png){: .mx-auto.d-block :} 
 
-![](/assets/img/checking-generated-samples.gif){: .mx-auto.d-block :} 
+![](/assets/img/post11/adversary.gif){: .mx-auto.d-block :} 
 
 What do we learn?  We learn that adding HTML attributes designed to assist vision-impaired users to phishing web pages to lower detection rates:
 
-![](/assets/img/post11/spacephish.png){: .mx-auto.d-block :} 
+![](/assets/img/post11/usaa.png){: .mx-auto.d-block :} 
 
 The end result is a phishing web page designed with data science, not just black magic and communal knowledge. 
 
