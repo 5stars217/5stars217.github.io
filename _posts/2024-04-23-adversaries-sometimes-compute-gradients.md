@@ -107,7 +107,7 @@ Using the spacephish dataset and code by [Biagio M](https://github.com/biagiom),
 
 ![](/assets/img//post11/spacephish.png.png){: .mx-auto.d-block :} 
 
-![](/assets/img/post11/adversary.gif){: .mx-auto.d-block :} 
+<iframe src="https://capture.dropbox.com/embed/Erf6NvSjUeQBlK9k?source=copy-embed" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 What do we learn?  We learn that adding HTML attributes designed to assist vision-impaired users to phishing web pages to lower detection rates:
 
