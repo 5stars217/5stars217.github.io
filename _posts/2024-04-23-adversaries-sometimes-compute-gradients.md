@@ -41,11 +41,16 @@ Furthermore, changing complex systems has downstream consequences which are ofte
 
 The story of attack & defense asymmetry lives on. 
 
-<figure class="half">
-    <a href="/assets/img/post11/objective.jpeg"><img src="/assets/img/post11/objective.jpeg"></a>
-    <a href="/assets/img/post11/depends.jpeg"><img src="/assets/img/post11/depends.jpeg"></a>
-    <figcaption>Left: Isn't that the objective? Right: Depends where you're standing.</figcaption>
-</figure>
+<div style="display: flex; justify-content: center;">
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="/assets/img/post11/objective.jpeg" style="width: 100%; height: auto;">
+    <p style="text-align: center;">Isn't that the objective?</p>
+  </div>
+  <div style="flex: 1; margin-left: 10px;">
+    <img src="/assets/img/post11/depends.jpeg" style="width: 100%; height: auto;">
+    <p style="text-align: center;">Depends where you're standing</p>
+  </div>
+</div>
 
 Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: []'simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
