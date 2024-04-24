@@ -33,7 +33,7 @@ The term is borrowed from the 'machine learning flywheel':
 
 In a security context, vendor defensive tooling has long-term access to all the attack (and benign!) telemetry of multiple customers. That's a lot of momentum being stored in that flywheel, leading to more opportunities for detection.  Their flywheel creates a complex decision function encompassing static, dynamic, signature and ML checks across a range of security verticals. 
 
-![Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum](/assets/img/post11/flywheel.gif)Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum
+![Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum](/assets/img/post11/flywheel.gif){: .mx-auto.d-block :} Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum
 
 A bigger flywheel with more momentum has its disadvantages though; it cannot change its rotational axis quickly, and that can be used to our advantage, allowing attackers to navigate a complex topography much faster. 
 
@@ -41,9 +41,9 @@ Furthermore, changing complex systems has downstream consequences which are ofte
 
 The story of attack | defense asymmetry lives on. 
 
-![Isn't that the objective?](/assets/img/post11/objective.jpeg)Isn't that the objective?
+![Isn't that the objective?](/assets/img/post11/objective.jpeg){: .mx-auto.d-block :} Isn't that the objective?
 
-![Depends where you're standing](/assets/img/post11/depends.jpeg)Depends where you're standing
+![Depends where you're standing](/assets/img/post11/depends.jpeg{: .mx-auto.d-block :} )Depends where you're standing
 
 Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: 'simple, rugged and dancing landscapes'. People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
@@ -84,19 +84,19 @@ Since Conference for Applied Machine Learning in Information Security (CAMLIS) 2
 As I mentioned, defensive phishing web page detectors are being used adversarially to generate better phishes by taking open source phishing webpage detection models and building phishing web pages against their features. Let's examine that a little closer:
 Using the spacephish dataset and code by Biagio M, we'll train a model, and use it to generate HTML features and insert them into phishing pages and see if we can make the models confidence of phishing go down:
 
-![](/assets/img/phishing-detection-model.png)
+![](/assets/img/phishing-detection-model.png){: .mx-auto.d-block :} 
 
-![](/assets/img/checking-generated-samples.gif)
+![](/assets/img/checking-generated-samples.gif){: .mx-auto.d-block :} 
 
 What do we learn?  We learn that adding HTML attributes designed to assist vision-impaired users to phishing web pages to lower detection rates:
 
-![](/assets/img/post11/spacephish.png)
+![](/assets/img/post11/spacephish.png){: .mx-auto.d-block :} 
 
 The end result is a phishing web page designed with data science, not just black magic and communal knowledge. 
 
 The same logic can be applied to malware detection and other defensive ML verticals: 
 
-![Source: endgame-ml-features calculation using SHAP values. You can see the features 'pushing' a detection, this can be used to refine payloads.](/assets/img/post11/endgame.png)
+![Source: endgame-ml-features calculation using SHAP values. You can see the features 'pushing' a detection, this can be used to refine payloads.](/assets/img/post11/endgame.png){: .mx-auto.d-block :} 
 
 I have been operationalizing detection data and performing behavioral analysis of endpoint detection systems using unsuperv
 These offensive anomaly detectors can inform us when a defensive technology has detected something it cares about and build us an ongoing database of telemetry. It isn't necessarily how a sophisticated threat actor would  collect this data (illegally) but it creates a legal mechanism to simulate it, since we aren't reversing the software either. 
@@ -112,7 +112,7 @@ Concepts like gradient descent and transferability mean that even black box clos
 
 You can see the data I've collected on that topic within the Offsec ML wiki, showing the transferability of adversarial attacks across models for each attack:
 
-![](/assets/img/post11/transferability.png)
+![](/assets/img/post11/transferability.png){: .mx-auto.d-block :} 
 
 Consider that every ML tool or dataset in the 'defensive' AND 'adversary' category of the Offsec ML wiki, is potentially an adversarial playground for crafting better attacks with data science. 
 For instance, open source malware models can be used to study and modify the qualities of a portable executable(PE) that flagged it in the first place. (This idea for executables is not original to me but I have been asked to not cite the person I would attribute it to). This won't result in evasion of non ML based detection, but it removes a lot of guesswork.
