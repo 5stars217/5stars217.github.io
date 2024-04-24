@@ -33,13 +33,13 @@ The term is borrowed from the 'machine learning flywheel':
 
 In a security context, vendor defensive tooling has long-term access to all the attack (and benign!) telemetry of multiple customers. That's a lot of momentum being stored in that flywheel, leading to more opportunities for detection.  Their flywheel creates a complex decision function encompassing static, dynamic, signature and ML checks across a range of security verticals. 
 
-![Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum](/assets/img/post11/flywheel.gif){: .mx-auto.d-block :} Objects with mass distributed farther from the rotational axis have a higher moment of inertia. The moment of inertia is directly proportional to the object's resistance to changes in its rotational motion or angular momentum
+<img src="/assets/img/post11/flywheel.gif" style="width: 50%; height: auto; float: right; margin-left: 20px;">
 
 A bigger flywheel with more momentum has its disadvantages though; it cannot change its rotational axis quickly, and that can be used to our advantage, allowing attackers to navigate a complex topography much faster. 
 
-Furthermore, changing complex systems has downstream consequences which are often hard to measure or further increase cost. 
+Furthermore, changing complex systems has downstream consequences which are often hard to measure or further increase cost.
 
-The story of attack & defense asymmetry lives on. 
+The story of attack | defense asymmetry lives on.
 
 <div style="display: flex; justify-content: center;">
   <div style="flex: 1; margin-right: 10px;">
