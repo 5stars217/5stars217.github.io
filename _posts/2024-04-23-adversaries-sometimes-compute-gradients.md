@@ -21,8 +21,10 @@ The next phase of asymmetric adversarial engagements against apex defenders requ
 
 ## The adversary flywheel?
 
-What is the adversary flywheel?
+**What is the adversary flywheel?**
+
 Encompasses tools, tactics and processes where an attacker saves telemetry from their operators, collects telemetry about defensive tools, and iterates on data gathered from defensive machine learning models via any means within their scope of authorization (or lack thereof…).
+
 They use this for data driven decisions regarding attacks, evasion and exploitation to better model the behavior and motivations of sophisticated threat actors, some of whom leave little to nothing to chance. 
 
 Building an adversary flywheel gives red team operators more time to surface vulnerabilities that are unique to their target environment and less time validating vendor purchase decisions, whilst taking a forward looking stance.
@@ -120,7 +122,7 @@ The same logic can be applied to malware detection and other defensive ML vertic
 I have been operationalizing detection data and performing [behavioral analysis of endpoint detection systems using unsupervised learning](https://www.youtube.com/watch?v=DLDrsSb_iqI&t=4s).
 These offensive anomaly detectors can inform us when a defensive technology has detected something it cares about and build us an ongoing database of telemetry. It isn't necessarily how a sophisticated threat actor would  collect this data (illegally) but it creates a legal mechanism to simulate it, since we aren't reversing the software either. 
 
-> In this manner, control evasions can be developed not by intuition or historical knowledge, but by understanding the specific ML features or labels of a detection , and adjusting accordingly.
+ - In this manner, control evasions can be developed not by intuition or historical knowledge, but by understanding the specific ML features or labels of a detection , and adjusting accordingly.
 
 More recently, adversarial research to avoid [netflow classifiers](https://wiki.offsecml.com/Offensive+ML/Attacking+Netflow+Classifiers/Poisoning+netflow+classifers) by back-dooring or poisoning classifiers  has been of keen interest to Advanced Persistent Threats(APTs). Some of these APT's have university backing in AI/ML Research, huge budgets and many experts, allowing them to add high end ML evasion techniques to their tool kits.
 
@@ -139,7 +141,7 @@ For instance, open source malware models can be used to study and modify the qua
 
 > The data for adversarial phishing bypasses shows that adding accessibility features to your phishing web pages drastically lowers the classification of it as phishing. What might you learn to apply this to other things? ;)
 
-Another great example  that comes to mind is []'proof pudding'](https://wiki.offsecml.com/Offensive+ML/Phishing/using+model+inversion+to+reverse+engineer+phishing+detectors) by [moo_hax](https://github.com/moohax) - where a black box model was 'inverted', allowing for adversarial use by the researcher who leveraged access to certain data-points used by the model, allowing them to bypass the security control through their newfound intimate knowledge by replicating the defensive model offline, totally removing the guesswork.
+Another great example  that comes to mind is ['proof pudding'](https://wiki.offsecml.com/Offensive+ML/Phishing/using+model+inversion+to+reverse+engineer+phishing+detectors) by [moo_hax](https://github.com/moohax) - where a black box model was 'inverted', allowing for adversarial use by the researcher who leveraged access to certain data-points used by the model, allowing them to bypass the security control through their newfound intimate knowledge by replicating the defensive model offline, totally removing the guesswork.
 
 This didn't directly give the operator 'access' but it did enable anyone who did this technique to intimately understand what the model cared about and would flag on. - What a confidence boost, operational security improvement and time saver to enable them to spend time on things that matter.
 
