@@ -39,11 +39,13 @@ A bigger flywheel with more momentum has its disadvantages though; it cannot cha
 
 Furthermore, changing complex systems has downstream consequences which are often hard to measure or further increase cost. 
 
-The story of attack | defense asymmetry lives on. 
+The story of attack & defense asymmetry lives on. 
 
-![Isn't that the objective?](/assets/img/post11/objective.jpeg){: .mx-auto.d-block :} Isn't that the objective?
-
-![Depends where you're standing](/assets/img/post11/depends.jpeg{: .mx-auto.d-block :} )Depends where you're standing
+<figure class="half">
+    <a href="/assets/img/post11/objective.jpeg"><img src="/assets/img/post11/objective.jpeg"></a>
+    <a href="/assets/img/post11/depends.jpeg"><img src="/assets/img/post11/depends.jpeg"></a>
+    <figcaption>Left: Isn't that the objective? Right: Depends where you're standing.</figcaption>
+</figure>
 
 Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: []'simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
