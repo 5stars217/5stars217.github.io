@@ -10,11 +10,13 @@ tags: [ml,sdlc,red team]
 ---
 
 
-# Adversaries sometimes compute gradients. Other times, they rob you.
+# Adversaries sometimes compute gradients.
 
 ## Bottom line up front:
 You want to know where the defender has less visibility, and exploit that?
+
 Build an adversary flywheel.
+
 The next phase of asymmetric adversarial engagements against apex defenders requires you to understand the defensive flywheel, and use data science to rapidly pivot the rotational axis of the much smaller and nimble adversary flywheel.
 
 ## The adversary flywheel?
@@ -52,7 +54,7 @@ The story of attack & defense asymmetry lives on.
   </div>
 </div>
 
-Put another way, when assessing AI/ML in attack/defense, would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: ['simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
+Put another way, when assessing AI/ML capabilities in attack/defense, would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: ['simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
 ## Building my adversary flywheel
 
@@ -77,11 +79,11 @@ We see in the following example diagrams for phishing detection and anti virus d
 <div style="display: flex; justify-content: center;">
   <div style="flex: 1; margin-right: 10px;">
     <img src="/assets/img/post11/phishing.png" style="width: 100%; height: auto;">
-    <p style="text-align: center;">phishing workflow simplified?</p>
+    <p style="text-align: center;">phishing workflow simplified</p>
   </div>
   <div style="flex: 1; margin-left: 10px;">
     <img src="/assets/img/post11/malware.png" style="width: 100%; height: auto;">
-    <p style="text-align: center;">av workflow simplified</p>
+    <p style="text-align: center;">av workflow simplified. In both cases, ML is just a component of the detection stack.</p>
   </div>
 </div>
 
@@ -115,7 +117,7 @@ The same logic can be applied to malware detection and other defensive ML vertic
 
 ![Source: [endgame-ml-features](https://www.elastic.co/jp/blog/opening-machine-learning-black-box-model-interpretability) calculation using [SHAP](https://christophm.github.io/interpretable-ml-book/shapley.html) values. You can see the features 'pushing' a detection, this can be used to refine payloads.](/assets/img/post11/endgame.png){: .mx-auto.d-block :} Source: [endgame-ml-features](https://www.elastic.co/jp/blog/opening-machine-learning-black-box-model-interpretability) calculation using [SHAP](https://christophm.github.io/interpretable-ml-book/shapley.html) values. You can see the features 'pushing' a detection, this can be used to refine payloads.
 
-I have been operationalizing detection data and performing behavioral analysis of endpoint detection systems using unsuperv
+I have been operationalizing detection data and performing [behavioral analysis of endpoint detection systems using unsupervised learning](https://www.youtube.com/watch?v=DLDrsSb_iqI&t=4s).
 These offensive anomaly detectors can inform us when a defensive technology has detected something it cares about and build us an ongoing database of telemetry. It isn't necessarily how a sophisticated threat actor would  collect this data (illegally) but it creates a legal mechanism to simulate it, since we aren't reversing the software either. 
 
 > In this manner, control evasions can be developed not by intuition or historical knowledge, but by understanding the specific ML features or labels of a detection , and adjusting accordingly.
@@ -129,7 +131,8 @@ Concepts like gradient descent and transferability mean that even black box clos
 
 You can see the data I've collected on that topic within the [Offsec ML wiki](https://wiki.offsecml.com/), showing the transferability of adversarial attacks across models for each attack:
 
-![](/assets/img/post11/transferability.png){: .mx-auto.d-block :} 
+![](/assets/img/post11/transferability.png){: .mx-auto.d-block :} This was an easter egg of the site for some time. 
+
 
 Consider that every ML tool or dataset in the 'defensive' AND 'adversary' category of the Offsec ML wiki, is potentially an adversarial playground for crafting better attacks with data science. 
 For instance, open source malware models can be used to study and modify the qualities of a portable executable(PE) that flagged it in the first place. (This idea for executables is not original to me but I have been asked to not cite the person I would attribute it to). This won't result in evasion of non ML based detection, but it removes a lot of guesswork.
