@@ -39,7 +39,7 @@ A bigger flywheel with more momentum has its disadvantages though; it cannot cha
 
 Furthermore, changing complex systems has downstream consequences which are often hard to measure or further increase cost.
 
-The story of attack | defense asymmetry lives on.
+The story of attack & defense asymmetry lives on.
 
 <div style="display: flex; justify-content: center;">
   <div style="flex: 1; margin-right: 10px;">
@@ -52,7 +52,7 @@ The story of attack | defense asymmetry lives on.
   </div>
 </div>
 
-Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: ['simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
+Put another way, when assessing AI/ML in attack/defense, would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: ['simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
 ## Building my adversary flywheel
 
@@ -101,7 +101,7 @@ Since [Conference for Applied Machine Learning in Information Security](https://
 As I mentioned, defensive phishing web page detectors are being used [adversarially to generate better phishes](https://wiki.offsecml.com/Offensive+ML/Phishing/Avoiding+phishing+webpage+detectors+via+black+box+ML) by taking open source phishing webpage detection models and building phishing web pages against their features. Let's examine that a little closer:
 Using the spacephish dataset and code by [Biagio M](https://github.com/biagiom), we'll train a model, and use it to generate HTML features and insert them into phishing pages and see if we can make the models confidence of phishing go down:
 
-![](/assets/img//post11/phishing.png){: .mx-auto.d-block :} 
+![](/assets/img//post11/spacephish.png.png){: .mx-auto.d-block :} 
 
 ![](/assets/img/post11/adversary.gif){: .mx-auto.d-block :} 
 
