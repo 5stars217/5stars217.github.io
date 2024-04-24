@@ -52,14 +52,14 @@ The story of attack | defense asymmetry lives on.
   </div>
 </div>
 
-Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: []'simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
+Would you rather navigate the landscape on the right in the more nimble flywheel or the one that changes direction more slowly? Inspiration taken from understanding complexity: ['simple, rugged and dancing landscapes'.](https://www.youtube.com/watch?v=3FyzOba2cUE&t=3s) People often make the mistake of assuming their business landscape and an attackers goals within it are like reaching the peak of Mount Fuji, but often its more like navigating the Appalachias, where its hard to judge where the peaks are from the different vantage points. 
 
 ## Building my adversary flywheel
 
 ### Step 1: Create a data flywheel 
 Attackers need to use more ML in their day to day. To really do that, they have to start building their flywheel and using ML adversarially and offensively. 
 
-Not just because blue teams are doing it, but because true adversaries are heavily invested in the space. When we look beyond 'cyber-criminals'  we see that there are adversaries  with the backing of multiple universities, dedicated ML teams and research teams. They take an active interest in understanding how to use ML both adversarially and offensively.  For an actual well thought out take on reevaluating attacker capabilities, and if this approach is right for you, see []'are we really helping'](https://jackson-t.com/are-we-helping/) by the venerable [Jackson-t.](https://twitter.com/jackson_t?lang=en)
+Not just because blue teams are doing it, but because true adversaries are heavily invested in the space. When we look beyond 'cyber-criminals'  we see that there are adversaries  with the backing of multiple universities, dedicated ML teams and research teams. They take an active interest in understanding how to use ML both adversarially and offensively.  For an actual well thought out take on reevaluating attacker capabilities, and if this approach is right for you, see ['are we really helping'](https://jackson-t.com/are-we-helping/) by the venerable [Jackson-t.](https://twitter.com/jackson_t?lang=en)
 
 To start, you need a data flywheel.  Projects like [red team telemetry](https://github.com/ztgrace/red_team_telemetry), [redELK](https://github.com/outflanknl/RedELK) and  [nemesis](https://wiki.offsecml.com/Offensive+ML/Flywheels/Nemesis) (a red team 'flywheel') which is enabling red teams to begin to build a database of attack telemetry for future use, like in ML or for static / dynamic evasion techniques, and creating a data pipeline for analysis and so on. But that's just one piece of the puzzle; we need more ML driven data inputs and techniques in play.
 
@@ -73,13 +73,23 @@ Your immediate criticism of this might be "but ml is just one layer in a highly 
 
 We see in the following example diagrams for phishing detection and anti virus detection that ML detections are just 1 small component of the detection stack. Fixating on that won't get you very far on its own. 
 
-![](/assets/img/post11/phishing.png)
 
-![](/assets/img/post11/malware.png)
+<div style="display: flex; justify-content: center;">
+  <div style="flex: 1; margin-right: 10px;">
+    <img src="/assets/img/post11/phishing.png" style="width: 100%; height: auto;">
+    <p style="text-align: center;">phishing workflow simplified?</p>
+  </div>
+  <div style="flex: 1; margin-left: 10px;">
+    <img src="/assets/img/post11/malware.png" style="width: 100%; height: auto;">
+    <p style="text-align: center;">av workflow simplified</p>
+  </div>
+</div>
 
 However, avoidance of things like signature checks, and static analysis techniques is par-for-the-course in most C2 frameworks, which perform things like symbols obfuscation and generate unique payloads by default. LLM hackbots can also generate content that bypasses these checks trivially. With that done, you can then think about what needs to be done to survive contact with a ML detection engine.
 
-We see in the activities of Advanced Persistent Threat's(APTs) that they are highly motivated to [compromise security researchers](https://therecord.media/microsoft-warning-svr-russia-breach-stolen-information) and learn about the defensive posture of an organization. They are not interested in leaving things to chance, so they learn about, or steal your defensive ML systems. They don't necessarily have to  []'compute your gradients'](https://arxiv.org/pdf/2212.14315.pdf), they steal your shit through whatever means possible ([relevant xkcd](https://xkcd.com/538/)).
+We see in the activities of Advanced Persistent Threat's(APTs) that they are highly motivated to [compromise security researchers](https://therecord.media/microsoft-warning-svr-russia-breach-stolen-information) and learn about the defensive posture of an organization. They are not interested in leaving things to chance, so they learn about, or steal your defensive ML systems. They don't necessarily have to  ['compute your gradients'](https://arxiv.org/pdf/2212.14315.pdf), they steal your shit through whatever means possible ([relevant xkcd](https://xkcd.com/538/)).
+
+
 Below them in the predator hierarchy is a range of attackers ranging from the sophisticated to not, who are also able to gain access to this type of data through a variety of means. All the more reason to integrate these approaches into your work.
 
 So lets talk about the application of ML for red team purposes - offensive ML. How is it currently being done or discussed publicly?
